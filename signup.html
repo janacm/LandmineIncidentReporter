@@ -12,6 +12,9 @@
   <!-- Custom stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 
+ <script type='text/javascript' src="signup.js"></script> 
+
+
 </head>
 
 <body ng-controller="SignUpController">
@@ -23,77 +26,67 @@
         <h1>Sign Up</h1>
     </header>
 
+<!--
+<form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
 
-        <!-- Username -->
-        <div class="blend-review-group form-group col-sm-4">
-          <label for="new-blend-review">Choose a username</label>
-          <br>
-        </div>
+  </form>
+-->
 
-        <!-- Password -->
-        <div class="rating-review-group form-group col-sm-8">
-          <label>Choose a password</label>
-          <br>
-        </div>
+<section class="login cf">
+<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+  <ul>
+    <li><label for="username">Choose a username</label>
+    <input type="email" required id="address" name="username" placeholder="yourname@email.com" required></li>
+    <li><label for="password">Choose a password</label>
+    <input type="password" required id="password" name="password" placeholder="password" required></li>
 
-        <!-- Verify Password -->
-        <div class="rating-review-group form-group col-sm-8">
-          <label>Re-type your password</label>
-          
-        </div>
+    <li><label for="password">Re-type your Password</label>
+    <input type="password" required id="verify password" name="password" placeholder="password" required></li>
+
+    <li><label for="password">The institution (e.g. hospital, clinic, or university) that you are affiliated with</label>
+    <input type="password" required id="institution name" name="password" placeholder="Trinity General" required></li>
+
+    <li><label for="password">Address of your institution</label>
+    <input type="text" required id="address" name="password" placeholder="Trinity General" required></li>
+
+    <li><label for="password">Contact number for verification.</label>
+    <input type="password" name="phone" placeholder="1-234-5678" required></li>
+    
+    <input type="submit" value="Login">
 
         <!-- Organization -->
         <div class="comment-review-group form-group col-sm-12">
-          <label>Hospital, clinic, or university that you are affiliated with</label>
+          <label></label>
         </div>
 
-        <!-- Phone -->
-        <div class="comment-review-group form-group col-sm-12">
-          <label>Phone number. We may call your establishment between 10am - 4pm (your local time) to verify your eligibility to use our service.</label>
-        </div>
+  </ul>
+</form>
+</section>
 
 
-        <!-- Submit -->
-        <div class="submit form-group col-sm-12">
-          <button type="submit" class="btn btn-default pull-right">Send</button>
-        </div>
+        
       </form>
     </div>
 
-    <!--_____________________________-->
-    <hr />
 
-    <!-- Reviews -->
-    <div class="row reviews-wrapper">
-      <!-- Review -->
-      <!--div class="col-sm-12 review" ng-repeat="review in reviews" ng-class="{well: $index % 3}"> -->
-<div class="col-sm-12 review" ng-repeat="review in reviews">
-
-        <h4 class="review-blend">{{review.blend}}</h4>
-        -
-        <div class="review-rating">{{review.rating}}/5</div>
-        <div class="review-comment">{{review.comment}}</div>
-        <div class="review-date pull-right">{{ (review.date * 1000) | date: 'MMM d - h:mma' }}</div>
-      </div>
-    </div>
-
-    <!--_____________________________-->
-    <hr />
 
 
     <!-- Footer -->
     <footer class="row">
       <div class="col-sm-12">
-
-        <!-- Logo -->
-        <div class="col-sm-6">
-          <div class="logo">
-            <img src="images/logo.png" alt="" />
-            <div class="tagline">
-              Really good coffee.
-            </div>
-          </div>
-        </div>
 
       </div>
     </footer>

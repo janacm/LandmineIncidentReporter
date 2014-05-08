@@ -2,17 +2,22 @@
 
 <head>
   <meta charset="utf-8">
-  <link href=".css" rel="stylesheet" type="text/css">
-  <script src=".js"></script>
+  <link href="login.css" rel="stylesheet" type="text/css">
   <title>Login</title>
 </head>
 
 <body>
+  <h1>Login To Input Data</h1>
   <form name="login" id="login" action="" method="get">
-    <label for="username">Username</label>
+    <section><label for="username">Username</label>
     <input type="text" id="username" class="username txt" name="username" />
-    <input type="password" id="password" class="password pwd" name="password" />
+    <label for="password">Password</label>
+    <input type="password" id="password" class="password pwd" name="password" /></section>
+    <section><input type="submit" value="Login" name="login" id="login"/></section>
   </form>
+  <div class="register">
+    <a href="signup.html">Register</a>
+  </div>
 </body>
 
 </html>

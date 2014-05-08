@@ -6,17 +6,24 @@
 /* CSS Style Sheet : style               */
 /* A file to define CSS used site wide.  */
 
+
+/* * *   Header   * * */
 header .title {
-  display: inline-block;
+  margin: 0px auto;
   text-align: center;
   font-size: 42pt;
   background: #E00
 }
-header nav a {
+
+header nav {
   display: inline-block;
+}
+
+header nav a {
   text-decoration: none;
   text-align: center;
   vertical-align: center;
+  background: #009;
 }
 
 

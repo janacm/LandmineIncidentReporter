@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Landmine Incident Reporter</title>
     <!-- Latest compiled and minified CSS -->
@@ -10,47 +10,73 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body{
+            background-color: beige;
+
+        }
+    </style>
 </head>
 <body>   
     <div class="container">
-        <header>
+        <header class="col-md-offset-4">
             <h1>Landmine Incident Report</h1>
         </header>
+
+        <div class="col-md-6 col-md-offset-3 ">
         <form>
-            <label>Country</label>
+        <!-- IDEA: We should only collect data which people would want to filter by -->
+            <label class="control-label">Country</label>
+            <input type="text" class="form-control" placeholder="Mexico">
+            <span class="help-block">Enter the country where the person was injured or deceased</span>
+
+            <label class="control-label">City</label>
+            <input type="text" class="form-control" placeholder="Los Pollos">
+            <span class="help-block">Enter the city where the person was injured or deceased</span>
+
+            <label class="control-label">Date Injured</label>
+            <input type="text" class="form-control" placeholder="Los Pollos">
+            <span class="help-block">If date is unknown, please enter date the patient was admitted or discovered</span>
+
+            <label class="control-label">Age</label>
+            <input type="text" class="form-control" placeholder="Unknown/Skip">
+            <span class="help-block">Age of the victim</span>
+
+            <label class="control-label">Gender</label>
+            <br>
+            <select class="form-control">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <br>    
+
+            <label class="control-label">Type of Explosive</label>
+            <br>
+            <select class="form-control">
+                <option>Landmine</option>
+                <option>IED</option>
+                <option>Other</option>
+            </select>
+            <br>
+
+            <label class="control-label">Injury</label>
             <input type="text" class="form-control" placeholder="Unknown/Skip">
 
-            <label>City</label>
+            <br>
+            <label class="control-label">Treatment</label>
             <input type="text" class="form-control" placeholder="Unknown/Skip">
 
-            <label>Age</label>
+            <br>            
+            <label class="control-label">Name of victim</label>
             <input type="text" class="form-control" placeholder="Unknown/Skip">
 
-            <label>Gender</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
-
-            <label>Explosive</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
-
-            <label>Injury</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
-
-            <label>Name</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
-
-            <label>Treatment</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
-
-            <label>Travel Path</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
-
-            <label>Country</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
-
-            <label>Name</label>
-            <input type="text" class="form-control" placeholder="Unknown/Skip">
+            <br>
+            <button type="button" class="btn btn-success">Submit</button>
 
         </form>
+        </div>
     </div>
 </body>
 </html>
