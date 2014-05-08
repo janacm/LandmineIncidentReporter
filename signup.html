@@ -20,44 +20,40 @@
 
     <!-- Header -->
     <header class="row">
-      <div class="logo col-sm-12">
-        <img src="images/logo.png" alt="" />
-        <h1>Corporate Pirates</h1>
-        <div class="tagline">
-          Really good coffee.
-        </div>
-      </div>
+        <h1>Sign Up</h1>
     </header>
 
-    <!-- Review form -->
-    <div class="row review-form-wrapper">
-      <form name="ratingForm" ng-submit="addReview();">
 
-        <!-- Select - Blend -->
+        <!-- Username -->
         <div class="blend-review-group form-group col-sm-4">
-          <label for="new-blend-review">Choose a blend</label>
-          <select ng-model="newBlend" name="new-blend-review" class="new-blend-review form-control">
-            <option ng-repeat="type in types" value="{{type}}">{{type}}</option>
-          </select>
+          <label for="new-blend-review">Choose a username</label>
+          <br>
         </div>
 
-        <!-- Radio - Rating -->
+        <!-- Password -->
         <div class="rating-review-group form-group col-sm-8">
-          <label>Blend rating</label>
-          <br />
-          <label ng-repeat="num in [5,4,3,2,1]" class="radio-inline">
-            <input ng-model="newRating" type="radio" id="rating-{{num}}" name="new-rating-review" value="{{num}}">
-            {{num}}
-          </label>
+          <label>Choose a password</label>
+          <br>
         </div>
 
-        <!-- Textarea - Comment -->
+        <!-- Verify Password -->
+        <div class="rating-review-group form-group col-sm-8">
+          <label>Re-type your password</label>
+          
+        </div>
+
+        <!-- Organization -->
         <div class="comment-review-group form-group col-sm-12">
-          <label for="new-comment-review">Comment</label>
-          <textarea ng-model="newComment" class="new-comment-review form-control" rows="3" name="new-comment-review"></textarea>
+          <label>Hospital, clinic, or university that you are affiliated with</label>
         </div>
 
-        <!-- Button - Submit -->
+        <!-- Phone -->
+        <div class="comment-review-group form-group col-sm-12">
+          <label>Phone number. We may call your establishment between 10am - 4pm (your local time) to verify your eligibility to use our service.</label>
+        </div>
+
+
+        <!-- Submit -->
         <div class="submit form-group col-sm-12">
           <button type="submit" class="btn btn-default pull-right">Send</button>
         </div>

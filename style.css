@@ -1,0 +1,26 @@
+/*style.css*/
+/**/
+/* Team, The  08/05/14  */
+/* for <WorkingTitle>   */
+
+/* CSS Style Sheet : style               */
+/* A file to define CSS used site wide.  */
+
+header .title {
+  display: inline-block;
+  text-align: center;
+  font-size: 42pt;
+  background: #E00
+}
+header nav a {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: center;
+}
+
+
+
+
+
+/* EOF */
