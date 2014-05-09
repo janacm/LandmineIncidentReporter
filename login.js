@@ -14,7 +14,7 @@ var auth = new FirebaseSimpleLogin(dataBase, function(error, user) {
     console.log('User Name: ' + user.uid + ', Provider: ' + user.provider);
   } else {
     // user is logged out
-    console.log('logedout');
+    console.log('loged out');
   }
 });
   

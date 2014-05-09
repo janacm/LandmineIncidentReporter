@@ -7,6 +7,10 @@
 /* A file to define CSS used site wide.  */
 
 
+body {
+  padding-top: 70px;
+}
+
 /* * *   Header   * * */
 header .title {
   margin: 0px auto;
@@ -15,7 +19,7 @@ header .title {
   background: #E00
 }
 
-header nav {
+/*header nav {
   display: inline-block;
 }
 
@@ -24,6 +28,11 @@ header nav a {
   text-align: center;
   vertical-align: center;
   background: #009;
+}*/
+
+.map img {
+  display: block;
+  margin: 100px auto;
 }
 
 

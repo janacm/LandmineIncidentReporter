@@ -7,12 +7,7 @@
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
 
   <!-- Google fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
-
-  <!-- Custom stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-
- <script type='text/javascript' src="signup.js"></script> 
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'> 
 
 
 </head>
@@ -23,7 +18,7 @@
 
     <!-- Header -->
     <header class="row">
-        <h1>Sign Up</h1>
+      <h1>Sign Up</h1>
     </header>
 
 <!--
@@ -46,64 +41,75 @@
 -->
 
 <section class="login cf">
-<form name="login" action="index_submit" method="get" accept-charset="utf-8">
-  <ul>
-    <li><label for="username">Choose a username</label>
-    <input type="email" required id="address" name="username" placeholder="yourname@email.com" required></li>
-    <li><label for="password">Choose a password</label>
-    <input type="password" required id="password" name="password" placeholder="password" required></li>
+  <form name="login" action="index_submit" method="get" accept-charset="utf-8">
+    <ul>
+      <li><label for="username">Choose a username</label>
+        <input type="email" required id="address" name="username" placeholder="yourname@email.com" required>
+      </li>
+      <li><label for="password">Choose a password</label>
+        <input type="password" required id="password" name="password" placeholder="password" required>
+      </li>
 
-    <li><label for="password">Re-type your Password</label>
-    <input type="password" required id="verify password" name="password" placeholder="password" required></li>
+      <li><label for="password">Re-type your Password</label>
+        <input type="password" required id="verify password" name="password" placeholder="password" required>
+      </li>
 
-    <li><label for="password">The institution (e.g. hospital, clinic, or university) that you are affiliated with</label>
-    <input type="password" required id="institution name" name="password" placeholder="Trinity General" required></li>
+      <li><label for="password">The institution (e.g. hospital, clinic, or university) that you are affiliated with</label>
+        <input type="password" required id="institution name" name="password" placeholder="Trinity General" required>
+      </li>
 
-    <li><label for="password">Address of your institution</label>
-    <input type="text" required id="address" name="password" placeholder="Trinity General" required></li>
+      <li><label for="password">Address of your institution</label>
+        <input type="text" required id="address" name="password" placeholder="Trinity General" required>
+      </li>
 
-    <li><label for="password">Contact number for verification.</label>
-    <input type="password" name="phone" placeholder="1-234-5678" required></li>
-    
-    <input type="submit" value="Login">
+      <li><label for="password">Contact number for verification.</label>
+        <input type="password" name="phone" placeholder="1-234-5678" required>
+      </li>
 
-        <!-- Organization -->
-        <div class="comment-review-group form-group col-sm-12">
-          <label></label>
-        </div>
+      <input type="submit" value="Login">
 
-  </ul>
-</form>
+
+    </ul>
+  </form>
 </section>
 
 
-        
-      </form>
-    </div>
+
+<!--
+
+<ul ng-repeat="message in messages">
+  <li>{{message.from}}: {{message.content}}
+  </li>
+</ul>
+<form ng-submit="addMessage();">
+  <input type="text" ng-model="message"/>
+  <input type="submit" value="Send Message"/>
+</form>
+-->
 
 
 
-
-    <!-- Footer -->
-    <footer class="row">
-      <div class="col-sm-12">
-
-      </div>
-    </footer>
+<!-- Footer -->
+<footer class="row">
+  <div class="col-sm-12">
 
   </div>
+</footer>
 
-  <!-- Angular CDN -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+</div>
 
-  <!-- Firebase CDN -->
-  <script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
 
-  <!-- AngularFire CDN -->
-  <script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+<!-- Angular CDN -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 
-  <!-- Custom JS -->
-  <script src="js/app.js"></script>
+<!-- Firebase CDN -->
+<script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+
+<!-- AngularFire CDN -->
+<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+<!-- Custom JS -->
+<script src="signup.js"></script>
 
 </body>
 </html>

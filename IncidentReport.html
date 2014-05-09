@@ -2,14 +2,30 @@
 <html lang="en">
 <head>
     <title>Landmine Incident Reporter</title>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+
+    <script type="text/javascript">
+        var myDataRef = new Firebase('https://landmine.firebaseio.com/');
+
+        $('#Country').keypress(function (e) {
+            if (e.keyCode == 13) {
+              var name = $('#Country').val();
+              myDataRef.set('Country ' + Country);
+              $('#Country').val('');
+            }
+        });
+
+    </script>
 
     <style type="text/css">
         body{
@@ -27,49 +43,51 @@
         <div class="col-md-6 col-md-offset-3 ">
         <form>
         <!-- IDEA: We should only collect data which people would want to filter by -->
-            <label class="control-label">Country</label>
+            <label id="Country" class="control-label">Country</label>
             <input type="text" class="form-control" placeholder="Mexico">
             <span class="help-block">Enter the country where the person was injured or deceased</span>
 
-            <label class="control-label">City</label>
+            <label id="City" class="control-label">City</label>
             <input type="text" class="form-control" placeholder="Los Pollos">
             <span class="help-block">Enter the city where the person was injured or deceased</span>
 
-            <label class="control-label">Date Injured</label>
+            <label class="id="Date Injured" control-label">Date Injured</label>
             <input type="text" class="form-control" placeholder="Los Pollos">
             <span class="help-block">If date is unknown, please enter date the patient was admitted or discovered</span>
 
-            <label class="control-label">Age</label>
+            <label id="Age" class="control-label">Age</label>
             <input type="text" class="form-control" placeholder="Unknown/Skip">
             <span class="help-block">Age of the victim</span>
 
-            <label class="control-label">Gender</label>
+            <label id="Gender" class="control-label">Gender</label>
             <br>
             <select class="form-control">
+                <option>Unknown</option>
+                <option>Other</option>
                 <option>Male</option>
                 <option>Female</option>
-                <option>Other</option>
             </select>
             <br>    
 
-            <label class="control-label">Type of Explosive</label>
+            <label class="control-id="Type of Explosive" label">Type of Explosive</label>
             <br>
             <select class="form-control">
+                <option>Unknown</option>
                 <option>Landmine</option>
                 <option>IED</option>
                 <option>Other</option>
             </select>
             <br>
 
-            <label class="control-label">Injury</label>
+            <label id="Injury" class="control-label">Injury</label>
             <input type="text" class="form-control" placeholder="Unknown/Skip">
 
             <br>
-            <label class="control-label">Treatment</label>
+            <label id="Treatment" class="control-label">Treatment</label>
             <input type="text" class="form-control" placeholder="Unknown/Skip">
 
             <br>            
-            <label class="control-label">Name of victim</label>
+            <label id="Nameofvictim" class="control-label">Name of victim</label>
             <input type="text" class="form-control" placeholder="Unknown/Skip">
 
             <br>

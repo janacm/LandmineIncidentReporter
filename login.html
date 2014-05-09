@@ -1,23 +1,35 @@
+<!doctype html>
 <html lang="en-ca">
 
-<head>
-  <meta charset="utf-8">
-  <link href="login.css" rel="stylesheet" type="text/css">
-  <title>Login</title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <link href="login.css" rel="stylesheet" type="text/css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <title>Login</title>
+  </head>
 
-<body>
-  <h1>Login To Input Data</h1>
-  <form name="login" id="login" action="" method="get">
-    <section><label for="username">Username</label>
-    <input type="text" id="username" class="username txt" name="username" />
-    <label for="password">Password</label>
-    <input type="password" id="password" class="password pwd" name="password" /></section>
-    <section><input type="submit" value="Login" name="login" id="login"/></section>
-  </form>
-  <div class="register">
-    <a href="signup.html">Register</a>
-  </div>
-</body>
+  <body>
+    <div class="container">
+      <div class="col-md-7 col-md-offset-2">  
+        <h1>Login To Input Data</h1>
+        <div class="col-md-6">
+        <form name="login" id="login" action="" method="get">
+          <label for="username" class="control-label">Username</label>
+          <input type="text" id="username" class="form-control" name="username" />
+          <label for="password" class="control-label">Password</label>
+          <input type="password" id="password" class="form-control" name="password" />
+        </div>
+        <div class="col-md-3">
+          <!--<input type="submit" value="login" class="btn btn-success loginBtn" name="login" id="login"/>-->
+          <a class="btn btn-success col-md-12 registerBtn" href="IncidentReport.html">Log In</a>
+        </div>
+        </form>
+        <div class="col-md-3">
+        <a class="btn btn-success col-md-12 registerBtn" href="signup.html">Register</a>
+        </div>
+      </div>
+    </div>
+  </body>
 
 </html>
