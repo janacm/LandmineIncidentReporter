@@ -41,42 +41,52 @@
 -->
 
 <section class="login cf">
-  <form name="login" action="index_submit" method="get" accept-charset="utf-8">
+  <form name="login" action="index_submit" method="get" accept-charset="utf-8" autocomplete="off">
     <ul>
       <li><label for="username">Choose a username</label>
-        <input type="email" required id="address" name="username" placeholder="yourname@email.com" required>
+        <input type="text" required id="username" placeholder="username" autofocus>
       </li>
       <li><label for="password">Choose a password</label>
-        <input type="password" required id="password" name="password" placeholder="password" required>
+        <input type="password" required id="password" placeholder="password">
       </li>
 
       <li><label for="password">Re-type your Password</label>
-        <input type="password" required id="verify password" name="password" placeholder="password" required>
+        <input type="password" required id="retyped_password" placeholder="password">
       </li>
 
       <li><label for="password">The institution (e.g. hospital, clinic, or university) that you are affiliated with</label>
-        <input type="password" required id="institution name" name="password" placeholder="Trinity General" required>
+        <input type="text" required id="institution_name" placeholder="Trinity General" required>
       </li>
 
       <li><label for="password">Address of your institution</label>
-        <input type="text" required id="address" name="password" placeholder="Trinity General" required>
+        <input type="text" required id="address" placeholder="Trinity General" required>
       </li>
 
       <li><label for="password">Contact number for verification.</label>
-        <input type="password" name="phone" placeholder="1-234-5678" required>
+        <input type="number" required id="phone" placeholder="1-234-5678" required>
       </li>
+<!--
+      <input type="submit" id="submit" value="Login" 
 
-      <input type="submit" value="Login">
+    document.getElementById("username"),
+    document.getElementById("password"),
+    document.getElementById("retyped password"),
+    document.getElementById("institution name"),
+    document.getElementById("address"),
+    document.getElementById("phone")
+    -->
+    <input type="button" id="submit_button" value="Place a registration ticket" onClick="addTicket();">
 
-
-    </ul>
-  </form>
+  </ul>
+</form>
 </section>
+
+<p id="status"></p>
+
 
 
 
 <!--
-
 <ul ng-repeat="message in messages">
   <li>{{message.from}}: {{message.content}}
   </li>
@@ -99,17 +109,20 @@
 </div>
 
 
-<!-- Angular CDN -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+<!-- Angular CDN 
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>-->
 
-<!-- Firebase CDN -->
-<script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+  <!-- Firebase CDN -->
+  <script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
 
-<!-- AngularFire CDN -->
-<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    
 
-<!-- Custom JS -->
-<script src="signup.js"></script>
+<!-- AngularFire CDN 
+  <script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>-->
+
+  <!-- Custom JS -->
+  <script src="signup.js"></script>
 
 </body>
 </html>
