@@ -3,6 +3,7 @@
 <head>
   <title>Register</title>
 
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="login.css">  
 
   <!-- Bootstrap CDN -->
@@ -16,12 +17,63 @@
 <body>
   <!-- Main Container -->
   <div id="AJAX-swap-content" class="main container">
-
+  
+  <div class="container">
+  <div class="col-md-8 col-md-offset-2 loginSec">
     <!-- Header -->
-    <header class="row">
+    <header class="col-md-offset-1">
       <h1>Sign Up</h1>
     </header>
 
+
+
+<section class="login cf col-md-8 col-md-offset-2">
+  <form name="login" action="index_submit" method="get" accept-charset="utf-8" autocomplete="off">
+      <label class="control-label" for="username">Choose a username</label>
+      <input type="text" class="form-control" required id="username" placeholder="username" autofocus>
+      <br>
+      <label class="control-label" for="password">Choose a password</label>
+      <input type="password" class="form-control" required id="password" placeholder="password">
+      <br>
+      <label class="control-label" for="password">Re-type your Password</label>
+      <input type="password" class="form-control" required id="retyped_password" placeholder="password">
+      <br>
+      <label class="control-label" for="password">The institution (e.g. hospital, clinic, or university) that you are affiliated with</label>
+      <input type="text" class="form-control" required id="institution_name" placeholder="Trinity General" required>
+      <br>
+      <label class="control-label" for="password">Address of your institution</label>
+      <input type="text" class="form-control" required id="address" placeholder="Trinity General" required>
+      <br>
+      <label class="control-label" for="password">Contact number for verification.</label>
+      <input type="number" class="form-control" required id="phone" placeholder="1-234-5678" required>
+      <br>
+<!--
+      <input type="submit" id="submit" value="Login" 
+
+    document.getElementById("username"),
+    document.getElementById("password"),
+    document.getElementById("retyped password"),
+    document.getElementById("institution name"),
+    document.getElementById("address"),
+    document.getElementById("phone")
+    -->
+    <input type="button" class="btn btn-success"  id="submit_button" value="Sign up!" onClick="addTicket();">
+</form>
+</section>
+</div>
+</div>
+<p id="status"></p>
+
+
+
+<!-- Footer -->
+<footer class="row">
+  <div class="col-sm-12">
+
+  </div>
+</footer>
+
+</div>
 <!--
 <form role="form">
   <div class="form-group">
@@ -40,61 +92,6 @@
 
   </form>
 -->
-
-<section class="login cf">
-  <form name="login" action="index_submit" method="get" accept-charset="utf-8" autocomplete="off">
-    <ul>
-      <li><label for="username">Choose a username</label>
-        <input type="text" required id="username" placeholder="username" autofocus>
-      </li>
-      <li><label for="password">Choose a password</label>
-        <input type="password" required id="password" placeholder="password">
-      </li>
-
-      <li><label for="password">Re-type your Password</label>
-        <input type="password" required id="retyped_password" placeholder="password">
-      </li>
-
-      <li><label for="password">The institution (e.g. hospital, clinic, or university) that you are affiliated with</label>
-        <input type="text" required id="institution_name" placeholder="Trinity General" required>
-      </li>
-
-      <li><label for="password">Address of your institution</label>
-        <input type="text" required id="address" placeholder="Trinity General" required>
-      </li>
-
-      <li><label for="password">Contact number for verification.</label>
-        <input type="number" required id="phone" placeholder="1-234-5678" required>
-      </li>
-<!--
-      <input type="submit" id="submit" value="Login" 
-
-    document.getElementById("username"),
-    document.getElementById("password"),
-    document.getElementById("retyped password"),
-    document.getElementById("institution name"),
-    document.getElementById("address"),
-    document.getElementById("phone")
-    -->
-    <input type="button" id="submit_button" value="Place a registration ticket" onClick="addTicket();">
-
-  </ul>
-</form>
-</section>
-
-<p id="status"></p>
-
-
-
-<!-- Footer -->
-<footer class="row">
-  <div class="col-sm-12">
-
-  </div>
-</footer>
-
-</div>
-
 
 
   <!-- Firebase CDN -->

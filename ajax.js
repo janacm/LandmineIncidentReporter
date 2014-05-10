@@ -20,10 +20,17 @@
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
    * * *                 Initialize Private Environment                  * * *
    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+   
+   
+  /* * * * * * * * * * * * * * * * * * * * *
+   Environment
+   * * * * * * * * * * * * * * * * * * * * */
   var $ = jQuery.noConflict();
   
   
-  //Private Variables:
+  /* * * * * * * * * * * * * * * * * * * * *
+   Private Variables
+   * * * * * * * * * * * * * * * * * * * * */
   var $pages = { 'home'    : {'title':undefined,'content':undefined},
                  'about'   : {'title':undefined,'content':undefined},
                  'contact' : {'title':undefined,'content':undefined},
@@ -32,9 +39,14 @@
                 };
   
   
-  //Function Definitions:
+  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+   * * *                      Function Definitions                       * * *
+   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
   
-  //utility functions
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+   Utility Functions
+   * * * * * * * * * * * * * * * * * * * * */
   function supportsLocalStorageHTML5() {
     try {
       return 'localStorage' in window && window['localStorage'] !== null;
@@ -61,43 +73,11 @@
   }
   
   
-  //function generators...
-  function make_swap_active_content_callback( pageName, activeID ) {
-    return function(eventObject) {
-      
-      //verify content...
-      if ($pages[pageName].content === undefined)
-        !make_load_content_callback(pageName,undefined,false)();
-      
-      //only swap if load (asynchronous or synchronous) was successful...
-      if ($pages[pageName].content !== undefined) {
-      
-        //reset title...
-        if ($pages[pageName].title !== undefined)
-          $(document).attr('title', $pages[pageName].title);
-      
-        //reset page indicator...
-        var oldActive = $(".active");
-        if (oldActive)
-          oldActive.removeClass("active");
-        if (activeID)
-          $(activeID).addClass("active");
-      
-        //reset content...
-        $("#AJAX-swap-parent>div").detach();
-        $("#AJAX-swap-parent").prepend($pages[pageName].content);
-        
-        //persistant storage to remember what page the user was last on...
-        storePageInLocalStorageHTML5(pageName, activeID);
-      
-      } else {
-        console.log("AJAX Error:  Could not load HTML content for page: '"+pageName+".html'!");
-      }
-      
-    };  //end return function() {}
-  }
+  /* * * * * * * * * * * * * * * * * * * * *
+   Callback Function Generators
+   * * * * * * * * * * * * * * * * * * * * */
   
-  function make_load_content_callback( pageName, linkedCallback, asynchronous ) {
+  function make_loadContent_callback( pageName, linkedCallback, asynchronous ) {
     asynchronous = (asynchronous ? true : false);
     return function() {
       $.ajax({
@@ -121,58 +101,115 @@
       });  //end $.ajax({})
     };  //end return function() {}
   }
-    
   
-  //setup once the DOM is ready...
+  function make_swapActiveContent_callback( pageName, activeID ) {
+    return function(eventObject) {
+      
+      //verify content...
+      if ($pages[pageName].content === undefined)
+        !make_loadContent_callback(pageName,undefined,false)();
+      
+      //only swap if load (asynchronous or synchronous) was successful...
+      if ($pages[pageName].content !== undefined) {
+      
+        //reset title...
+        if ($pages[pageName].title !== undefined)
+          $(document).attr('title', $pages[pageName].title);
+      
+        //reset page indicator...
+        var oldActive = $(".active");
+        if (oldActive)
+          oldActive.removeClass("active");
+        if (activeID)
+          $(activeID).addClass("active");
+      
+        //reset content...
+        $("#AJAX-swap-parent>div").detach();
+        $("#AJAX-swap-parent").prepend($pages[pageName].content);
+        
+        //history & back button...
+        console.log("pushing: "+pageName);
+        history.pushState({page: pageName, activeElement: activeID},null,pageName+'.html');
+        
+        //persistant storage to remember what page the user was last on...
+        storePageInLocalStorageHTML5(pageName, activeID);
+      
+      } else {
+        console.log("AJAX Error:  Could not load HTML content for page: '"+pageName+".html'!");
+      }
+      
+    };  //end return function() {}
+  }
+  
+  
+  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+   * * *                     Install Event Handlers                      * * *
+   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+  
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+   Window Handlers
+   * * * * * * * * * * * * * * * * * * * * */
+  window.addEventListener("popstate", function(event) {
+    if (event.state) {
+      console.log("poping: "+event.state.page);
+      (make_swapActiveContent_callback(event.state.page, event.state.activeElement))();
+    }
+  });
+  
+  
+  /* * * * * * * * * * * * * * * * * * * * *
+   DOM Handler  (once the DOM is ready)
+   * * * * * * * * * * * * * * * * * * * * */
   $(document).ready(function() {
     
-    //save initial state...
+    // Save initial state...
     $pages['home'].title   = $(document).attr('title');
     $pages['home'].content = $("#AJAX-swap-parent>div");
     
-    //load last page if they return within a specified time...
+    
+    /* * * * * * * * * * * * * * * * * * * * *
+     Load Last Page Visited
+     * * * * * * * * * * * * * * * * * * * * */
     if ( supportsLocalStorageHTML5() ) {
+      // Verify local storage state...
       var page = localStorage.getItem('lastViewedPage');
       var time = localStorage.getItem('lastViewedTime');
       var elem = localStorage.getItem('lastActiveElem');
       elem = ( elem==='undefined' ? undefined : elem );
       
+      // Load last page if they return within 20 minutes...
       if ( page !== null && time !== null ) {
-        if (Date.now() - Date.parse(time) <= 1200000)  //20 min
-          (make_swap_active_content_callback(page,elem))();
+        if (Date.now() - Date.parse(time) <= 1200000)  // i.e. elapsed time <= 20 min
+          (make_swapActiveContent_callback(page,elem))();
       } else {
         storePageInLocalStorageHTML5('home');
       }
     }
     
-    //asynchronous pre-load...
-    var load_contact = make_load_content_callback('contact', undefined);
-    var load_about   = make_load_content_callback('about',   load_contact);
-    var load_signup  = make_load_content_callback('signup',  load_about);
-    var load_report  = make_load_content_callback('report',  load_signup);
     
+    /* * * * * * * * * * * * * * * * * * * * *
+     Asynchronous Pre-Load
+     * * * * * * * * * * * * * * * * * * * * */
+    // Setup callback chain...
+    var load_contact = make_loadContent_callback('contact', undefined);
+    var load_about   = make_loadContent_callback('about',   load_contact);
+    var load_signup  = make_loadContent_callback('signup',  load_about);
+    var load_report  = make_loadContent_callback('report',  load_signup);
+    
+    // Initiate preloads...
     // TODO:  Only preload if not mobile
     load_report();
     
-    //install click handlers....
-    $("#RegisterBtn").click(function(eventObject) {   //is touch friendly?
-      $("#AJAX-swap-parent>div").detach();
-      $("#AJAX-swap-parent").prepend($pages['signup'].content);
-    });
     
-    $("#LoginBtn").click(function(eventObject) {   //is touch friendly?
-      // TODO:  Authenticate
-      
-      $("#AJAX-swap-parent>div").detach();
-      $("#AJAX-swap-parent").prepend($pages['report'].content);
-    });
-    
-    
-    $("#HomeBtn"    ).click( make_swap_active_content_callback('home')   );  //is touch friendly?
-    $("#LoginBtn"   ).click( make_swap_active_content_callback('report') );  //is touch friendly?
-    $("#RegisterBtn").click( make_swap_active_content_callback('signup') );  //is touch friendly?
-    $("#AboutBtn"   ).click( make_swap_active_content_callback('about',  '#AboutBtn')   );  //is touch friendly?
-    $("#ContactBtn" ).click( make_swap_active_content_callback('contact','#ContactBtn') );  //is touch friendly?
+    /* * * * * * * * * * * * * * * * * * * * *
+     Click Handlers
+     * * * * * * * * * * * * * * * * * * * * */
+    $("#HomeBtn"    ).click( make_swapActiveContent_callback('home')   );  //is touch friendly?
+    $("#LoginBtn"   ).click( make_swapActiveContent_callback('report') );  //is touch friendly?  // TODO:  Authenticate
+    $("#RegisterBtn").click( make_swapActiveContent_callback('signup') );  //is touch friendly?
+    $("#AboutBtn"   ).click( make_swapActiveContent_callback('about',  '#AboutBtn')   );  //is touch friendly?
+    $("#ContactBtn" ).click( make_swapActiveContent_callback('contact','#ContactBtn') );  //is touch friendly?
     
   });  //end $(document).ready()
   

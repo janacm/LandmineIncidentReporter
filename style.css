@@ -22,7 +22,7 @@ header .title {
 
 /* * *   Navbar   * * */
 .navbar-custom {
-  background-color: #5EBD55 !important;
+  background-color: #25457F !important;
 }
 
 .navbar-custom a {
@@ -36,7 +36,7 @@ header .title {
 }
 
 .navbar-custom .active {
-  background-color: #75C66C !important;
+  background-color: #25457F !important;
 }
 
 .navbar-toggle-custom {
@@ -73,16 +73,12 @@ header nav a {
 .footer {
   width: 100%;
   text-align: center;
-  background-color: #5EBD55;
+  background-color: #25457F;
   padding-top: 30px;
-  padding-bottom: 15px;
+  padding-bottom: 2px;
   color: #fff;
   margin-top: 185px;
 }
-
-
-
-
 
 
 

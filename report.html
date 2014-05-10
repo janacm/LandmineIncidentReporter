@@ -15,19 +15,22 @@
 
     <script type="text/javascript" src="data.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+
 </head>
 
 <body>
   <div id="AJAX-swap-content">
     <!-- <pre>{{Locations}}</pre> -->
-    <div ng-repeat="land in Locations">
-        <li>{{land}}</li>
+    
     </div> 
     <div class="container">
-        <header class="col-md-offset-4">
+      <div class="col-md-8 col-md-offset-2 loginSec">  
+        <header>
             <h1>Landmine Incident Report</h1>
         </header>
-        <div class="col-md-6 col-md-offset-3 ">
+        <div class="col-md-8 col-md-offset-2">
             <form>
                 <!-- IDEA: We should only collect data which people would want to filter by -->
                 <label  class="control-label">Country</label>
@@ -81,6 +84,7 @@
                 <button type="button" class="btn btn-success" onclick="pushIncidentToDB()">Submit</button>
             </form>
         </div>
+      </div>  
     </div> 
 </body>
 <script type="text/javascript" src="js/report.js"></script>
