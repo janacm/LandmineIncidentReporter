@@ -12,13 +12,17 @@
     </form>
     <script>
       var myDataRef = new Firebase('https://landmine.firebaseio.com/');
+      var myUserRef = new Firebase('https://landmine.firebaseio.com/users');
       
       function sendtoDB(){
         // console.log("var name" + name);
         var name = $('#nameInput').val();
         var text = $('#messageInput').val();
-        myDataRef.push({name: name, text: text}); //works
+        // myDataRef.set({users:{name: name, text:text}}); //works
+        // myUserRef.child('name').push(name: name);
         // myDataRef.set('User ' + name + ' says ' + text);
+        myDataRef.set({name: name, text: text});
+
       }
           
     </script>

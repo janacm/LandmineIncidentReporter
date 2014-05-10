@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
- //wireframe.html
+ //index.html
  //
- // Team, The  08/05/14  //
- // for <WorkingTitle>   //
+ // Team, The  08/05/14             //
+ // for Landmine Incident Reporter  //
  
  // Homepage : home
  // A landing page which allows quick access to login and signup.
@@ -27,9 +27,9 @@
     <!-- - - - - - - - - - - - - - - - - - - -
      Page Attributes
      - - - - - - - - - - - - - - - - - - - -->
-    <title>&lt;WorkingTitle&gt;</title>
+    <title>Landmine Incident Reporter</title>
     <meta name="Author"                 content="Team, The">
-    <meta name="Description" lang="en"  content="The homepage of the &lt;WorkingTitle&gt;.">
+    <meta name="Description" lang="en"  content="The homepage of the Landmine Incident Reporter.">
     <meta name="Keywords"    lang="en"  content="Landmine, Incident Report">
     <!--link rel="icon"             type="image/jpg" href="/images/favicon.jpg"-->
     <!--link rel="apple-touch-icon" type="image/jpg" href="/images/favicon.jpg"-->
@@ -57,26 +57,26 @@
      - - - - - - - - - - - - - - - - - - - -->
     
     <header>
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container-fluid">
           <!-- Title and Toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <!-- Three-Bar Togle Button (for mobile) -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle navbar-toggle-custom" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+              <span class="icon-bar icon-custom"></span>
+              <span class="icon-bar icon-custom"></span>
+              <span class="icon-bar icon-custom"></span>
             </button>
             <!-- Title -->
-            <a class="navbar-brand" href="#">&lt;Working Title&gt;</a>
+            <a id="HomeBtn" class="navbar-brand">Landmine Incident Reporter</a>
           </div>
           
           <!-- Other Content (which is toggled) -->
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="#">About the Issue</a></li>
-              <li><a href="contact.html">Contact Agencies</a></li>
+              <li><a id="AboutBtn">About the Issue</a></li>  <!--href="about.html"-->
+              <li><a id="ContactBtn">Contact Agencies</a></li>  <!--href="contact.html"-->
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -85,41 +85,55 @@
     </header>
     
     
-    <!-- - - - - - - - - - - - - - - - - - - -
-     Log In / Register
-     - - - - - - - - - - - - - - - - - - - -->
-    
-    <div class="container">
-      <div class="col-md-7 col-md-offset-2">  
-        <h1>Login To Input Data</h1>
-        <div class="col-md-6">
-        <form name="login" id="login" action="" method="get">
-          <label for="username" class="control-label">Username</label>
-          <input type="text" id="username" class="form-control" name="username" />
-          <label for="password" class="control-label">Password</label>
-          <input type="password" id="password" class="form-control" name="password" />
-        </div>
-        <div class="col-md-3">
-          <!--<input type="submit" value="login" class="btn btn-success loginBtn" name="login" id="login"/>-->
-          <a class="btn btn-success col-md-12 registerBtn" href="IncidentReport.html">Log In</a>
-        </div>
-        </form>
-        <div class="col-md-3">
-        <a class="btn btn-success col-md-12 registerBtn" href="signup.html">Register</a>
-        </div>
-      </div>
+    <div id="AJAX-swap-parent">
+      <div id="AJAX-swap-content">
+		    
+				<!-- - - - - - - - - - - - - - - - - - - -
+				 Log In / Register
+				 - - - - - - - - - - - - - - - - - - - -->
+		    
+				<div class="container firstDiv">
+					<div class="col-md-8 col-md-offset-2 loginSec">  
+						<h1>Login or Register</h1>
+						<div class="col-md-6">
+						<form name="login" id="login" action="" method="get">
+							<label for="username" class="control-label">Username</label>
+							<input type="text" id="username" class="form-control" name="username" value="&lt;Not Necessesary&gt;">
+							<label for="password" class="control-label">Password</label>
+							<input type="password" id="password" class="form-control" name="password" value="&lt;Not Necessesary&gt;">
+						</div>
+						<div class="col-md-3">
+							<!--<input type="submit" value="login" class="btn btn-success loginBtn" name="login" id="login"/>-->
+							<a id="LoginBtn" class="btn btn-success col-md-12 registerBtn">Report</a>  <!--href="report.html"-->
+						</div>
+						</form>
+						<div class="col-md-3">
+							<a id="RegisterBtn" class="btn btn-success col-md-12 registerBtn">Register</a>  <!--href="signup.html"-->
+						</div>
+					</div>
+				</div>
+		
+		
+				<!-- - - - - - - - - - - - - - - - - - - -
+				 Map
+				 - - - - - - - - - - - - - - - - - - - -->
+		
+				<div class="map">
+					<!--<img alt="This is a map"
+							 src="http://newsimg.bbc.co.uk/media/images/44276000/gif/_44276352_mines_map_629.gif"
+							 width="1000"
+					/>
+          <img alt="This is a map"
+               src="http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png"
+               width="100%"
+          />-->
+				</div>
+			
+		  </div>
     </div>
-    
-    
-    <!-- - - - - - - - - - - - - - - - - - - -
-     Map
-     - - - - - - - - - - - - - - - - - - - -->
-    
-    <div class="map">
-      <img alt="This is a map"
-           src="http://newsimg.bbc.co.uk/media/images/44276000/gif/_44276352_mines_map_629.gif"
-           width="1000"
-      />
+
+    <div class="footer">
+      <p>Team, The</p>
     </div>
     
     
@@ -130,7 +144,8 @@
     <script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
     <script src="https://cdn.firebase.com/js/simple-login/1.4.1/firebase-simple-login.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script type='text/javascript' src="login.js"></script>
+    <!--script type='text/javascript' src="login.js"></script-->
+    <script type='text/javascript' src="ajax.js"></script>
     
     
   </body>

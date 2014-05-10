@@ -1,7 +1,7 @@
 /*style.css*/
 /**/
-/* Team, The  08/05/14  */
-/* for <WorkingTitle>   */
+/* Team, The  08/05/14             */
+/* for Landmine Incident Reporter  */
 
 /* CSS Style Sheet : style               */
 /* A file to define CSS used site wide.  */
@@ -9,6 +9,7 @@
 
 body {
   padding-top: 70px;
+  background:url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png') no-repeat center center fixed;
 }
 
 /* * *   Header   * * */
@@ -16,7 +17,34 @@ header .title {
   margin: 0px auto;
   text-align: center;
   font-size: 42pt;
-  background: #E00
+  background: #E00;
+}
+
+/* * *   Navbar   * * */
+.navbar-custom {
+  background-color: #5EBD55 !important;
+}
+
+.navbar-custom a {
+  color: #fff !important;
+}
+
+.navbar-custom a:hover {
+  color: #dedede !important;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+.navbar-custom .active {
+  background-color: #75C66C !important;
+}
+
+.navbar-toggle-custom {
+  border: solid 2px white !important;
+}
+
+.icon-custom {
+  background-color: white !important;
 }
 
 /*header nav {
@@ -30,10 +58,31 @@ header nav a {
   background: #009;
 }*/
 
-.map img {
-  display: block;
-  margin: 100px auto;
+.firstDiv {
+  margin-top: 50px;
 }
+
+.loginSec {
+  background-color: rgba(222,222,222,0.9);
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 15px 30px 30px;
+  margin-top: 45px;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  background-color: #5EBD55;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  color: #fff;
+  margin-top: 185px;
+}
+
+
+
+
 
 
 

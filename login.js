@@ -1,6 +1,6 @@
 
 
-var dataBase = new Firebase('https://workingtitle.firebaseio.com');
+var dataBase = new Firebase('https://landmine-incident-db.firebaseio.com');
 
 var auth = new FirebaseSimpleLogin(dataBase, function(error, user) {
     console.log('err: ' + error);

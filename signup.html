@@ -1,7 +1,9 @@
-<html ng-app="SignUp">
-
+<!DOCTYPE html>
+<html>
 <head>
-  <title>Sign Up</title>
+  <title>Register</title>
+
+  <link rel="stylesheet" type="text/css" href="login.css">  
 
   <!-- Bootstrap CDN -->
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
@@ -9,12 +11,11 @@
   <!-- Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'> 
 
-
 </head>
 
-<body ng-controller="SignUpController">
+<body>
   <!-- Main Container -->
-  <div class="main container">
+  <div id="AJAX-swap-content" class="main container">
 
     <!-- Header -->
     <header class="row">
@@ -85,20 +86,6 @@
 
 
 
-
-<!--
-<ul ng-repeat="message in messages">
-  <li>{{message.from}}: {{message.content}}
-  </li>
-</ul>
-<form ng-submit="addMessage();">
-  <input type="text" ng-model="message"/>
-  <input type="submit" value="Send Message"/>
-</form>
--->
-
-
-
 <!-- Footer -->
 <footer class="row">
   <div class="col-sm-12">
@@ -109,8 +96,6 @@
 </div>
 
 
-<!-- Angular CDN 
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>-->
 
   <!-- Firebase CDN -->
   <script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>

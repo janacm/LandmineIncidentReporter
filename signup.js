@@ -47,7 +47,7 @@ function addTicket()
 
   if (tpassword==tchk) 
   {
-    var ticketDB = new Firebase(" https://shining-fire-2988.firebaseio.com/");
+    var ticketDB = new Firebase(" https://landmine.firebaseio.com/");
     ticketDB.push({ username: tusername,password: tpassword, institution: tinstitution, address: taddress, phone: tphone});
     //ticketDB.set({ username: ttusername });
 
