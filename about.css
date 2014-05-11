@@ -35,10 +35,7 @@ body, html {
   height: 100%;
   min-height: 100%;
   background-color: #000000;
-}
-
-body {
-  font-style: Helvetica;  
+  font-family: Helvetica; 
 }
 
 .no-js {
@@ -94,7 +91,7 @@ main {
   max-width: 700px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 10%;
 }
 
 .hsContent h2  {
@@ -116,12 +113,12 @@ main {
 
 /* Slide 1 */
 #slide-1 .bcg {
-  background-image: url('http://2.bp.blogspot.com/-XXbQibV32Sc/UDerpV3S-qI/AAAAAAAABGY/oPoBI5HtF5Y/s1600/DSC01592.JPG')
+  background-image: url('http://2.bp.blogspot.com/-XXbQibV32Sc/UDerpV3S-qI/AAAAAAAABGY/oPoBI5HtF5Y/s1600/DSC01592.JPG');
 }
 
 #slide-1 .hsContent {
   bottom: 200px;
-  top: auto;
+  top: 30%;
 }
 
 
@@ -129,18 +126,17 @@ main {
 
 /* Slide 2 */
 #slide-2 .bcg {
-  background-image: url('http://1.bp.blogspot.com/-oERzgWsiXag/T8IgRiaSAKI/AAAAAAAABPM/T82MQ6zgWvY/s1600/Akka+Majdal+Shams+Negev+176.JPG')
+  background-image: url('http://1.bp.blogspot.com/-oERzgWsiXag/T8IgRiaSAKI/AAAAAAAABPM/T82MQ6zgWvY/s1600/Akka+Majdal+Shams+Negev+176.JPG');
 }
 
 #slide-2 .hsContent {
     margin-left: -450px;
-    top:  30%;
     left: 60%;
 }
 
 #slide-2 h2 {
     position: fixed;
-    top: 85%;
+    top: 90%;
     left: 10%;
 }
 
@@ -148,7 +144,7 @@ main {
 
 
 /* Slide 3 */
-#slide-3 .bcg {
+#slide-3 .bcg {;
   background-image: url('http://chyzmyz.files.wordpress.com/2010/01/photo-land-mine-pile.jpg')
 }
 
@@ -165,7 +161,7 @@ main {
 
 /* Slide 4 */
 #slide-4 .bcg {
-  background-image: url('http://hydaway.files.wordpress.com/2012/07/thailand-and-cambodia-5241.jpg')
+  background-image: url('http://hydaway.files.wordpress.com/2012/07/thailand-and-cambodia-5241.jpg');
 }
 
 #slide-4 .hsContent {

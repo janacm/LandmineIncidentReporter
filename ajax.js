@@ -127,9 +127,9 @@
         $("#AJAX-swap-parent>div").detach();
         $("#AJAX-swap-parent").prepend($pages[pageName].content);
         
-        //history & back button...
-        console.log("pushing: "+pageName);
-        history.pushState({page: pageName, activeElement: activeID},null,pageName+'.html');
+//         //history & back button...
+//         console.log("pushing: "+pageName);
+//         history.pushState({page: pageName, activeElement: activeID},null,pageName+'.html');
         
         //persistant storage to remember what page the user was last on...
         storePageInLocalStorageHTML5(pageName, activeID);
@@ -150,12 +150,12 @@
   /* * * * * * * * * * * * * * * * * * * * *
    Window Handlers
    * * * * * * * * * * * * * * * * * * * * */
-  window.addEventListener("popstate", function(event) {
-    if (event.state) {
-      console.log("poping: "+event.state.page);
-      (make_swapActiveContent_callback(event.state.page, event.state.activeElement))();
-    }
-  });
+//  window.addEventListener("popstate", function(event) {
+//     if (event.state) {
+//       console.log("poping: "+event.state.page);
+//       (make_swapActiveContent_callback(event.state.page, event.state.activeElement))();
+//     }
+//   });
   
   
   /* * * * * * * * * * * * * * * * * * * * *
@@ -181,7 +181,7 @@
       // Load last page if they return within 20 minutes...
       if ( page !== null && time !== null ) {
         if (Date.now() - Date.parse(time) <= 1200000)  // i.e. elapsed time <= 20 min
-          (make_swapActiveContent_callback(page,elem))();
+//           (make_swapActiveContent_callback(page,elem))();
       } else {
         storePageInLocalStorageHTML5('home');
       }

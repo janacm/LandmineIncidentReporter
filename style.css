@@ -7,9 +7,10 @@
 /* A file to define CSS used site wide.  */
 
 
-body {
+body, html{
   padding-top: 70px;
   background:url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png') no-repeat center center fixed;
+  background-color: rgba(0,0,0,0);
 }
 
 /* * *   Header   * * */

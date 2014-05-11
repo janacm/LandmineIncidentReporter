@@ -1,0 +1,20 @@
+demo notes.txt
+
+- make sure all links/buttons work
+     - or remove things that are not done
+     - clients don't understand "work in progress items"
+- show user review form
+- "what if ___ could be "
+- have a real company name
+- existing solutions vs what we have
+- how we got to our solutions
+    - robotic rats, bomb-gamification
+- user testing
+
+-start with problem state i.e.
+    - 65000 
+
+- selfish reason for getting involved
+    - gamification!
+    - incentive?
+    - tax credit?
