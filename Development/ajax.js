@@ -34,8 +34,10 @@
   var $pages = { 'home'    : {'title':undefined,'content':undefined},
                  'about'   : {'title':undefined,'content':undefined},
                  'contact' : {'title':undefined,'content':undefined},
-                 'signup'  : {'title':undefined,'content':undefined},
-                 'report'  : {'title':undefined,'content':undefined}
+               //'signup'  : {'title':undefined,'content':undefined},
+                 'report'  : {'title':undefined,'content':undefined},
+                 'report_medical'   : {'title':undefined,'content':undefined},
+                 'report_military'  : {'title':undefined,'content':undefined}
                 };
   
   
@@ -131,8 +133,8 @@
 //         console.log("pushing: "+pageName);
 //         history.pushState({page: pageName, activeElement: activeID},null,pageName+'.html');
         
-        //persistant storage to remember what page the user was last on...
-        storePageInLocalStorageHTML5(pageName, activeID);
+//         //persistant storage to remember what page the user was last on...
+//         storePageInLocalStorageHTML5(pageName, activeID);
       
       } else {
         console.log("AJAX Error:  Could not load HTML content for page: '"+pageName+".html'!");
@@ -168,46 +170,49 @@
     $pages['home'].content = $("#AJAX-swap-parent>div");
     
     
-    /* * * * * * * * * * * * * * * * * * * * *
-     Load Last Page Visited
-     * * * * * * * * * * * * * * * * * * * * */
-    if ( supportsLocalStorageHTML5() ) {
-      // Verify local storage state...
-      var page = localStorage.getItem('lastViewedPage');
-      var time = localStorage.getItem('lastViewedTime');
-      var elem = localStorage.getItem('lastActiveElem');
-      elem = ( elem==='undefined' ? undefined : elem );
-      
-      // Load last page if they return within 20 minutes...
-      if ( page !== null && time !== null ) {
-        if (Date.now() - Date.parse(time) <= 1200000)  // i.e. elapsed time <= 20 min
+//    /* * * * * * * * * * * * * * * * * * * * *
+//     Load Last Page Visited
+//      * * * * * * * * * * * * * * * * * * * * */
+//     if ( supportsLocalStorageHTML5() ) {
+//       // Verify local storage state...
+//       var page = localStorage.getItem('lastViewedPage');
+//       var time = localStorage.getItem('lastViewedTime');
+//       var elem = localStorage.getItem('lastActiveElem');
+//       elem = ( elem==='undefined' ? undefined : elem );
+//       
+//       // Load last page if they return within 20 minutes...
+//       if ( page !== null && time !== null ) {
+//         if (Date.now() - Date.parse(time) <= 1200000)  // i.e. elapsed time <= 20 min
 //           (make_swapActiveContent_callback(page,elem))();
-      } else {
-        storePageInLocalStorageHTML5('home');
-      }
-    }
+//       } else {
+//        storePageInLocalStorageHTML5('home');
+//       }
+//     }
     
     
     /* * * * * * * * * * * * * * * * * * * * *
      Asynchronous Pre-Load
      * * * * * * * * * * * * * * * * * * * * */
     // Setup callback chain...
-    var load_contact = make_loadContent_callback('contact', undefined);
-    var load_about   = make_loadContent_callback('about',   load_contact);
-    var load_signup  = make_loadContent_callback('signup',  load_about);
-    var load_report  = make_loadContent_callback('report',  load_signup);
+    var load_contact = make_loadContent_callback('contact',    undefined);
+    var load_about   = make_loadContent_callback('about',      load_contact);
+//  var load_signup  = make_loadContent_callback('signup',     load_about);
+    var load_pubReport  = make_loadContent_callback('report',  load_about);
+    var load_medReport  = make_loadContent_callback('report_medical',   load_pubReport);
+    var load_milReport  = make_loadContent_callback('report_military',  load_medReport);
+    
     
     // Initiate preloads...
     // TODO:  Only preload if not mobile
-    load_report();
+    load_milReport();
     
     
     /* * * * * * * * * * * * * * * * * * * * *
      Click Handlers
      * * * * * * * * * * * * * * * * * * * * */
     $("#HomeBtn"    ).click( make_swapActiveContent_callback('home')   );  //is touch friendly?
-    $("#LoginBtn"   ).click( make_swapActiveContent_callback('report') );  //is touch friendly?  // TODO:  Authenticate
-    $("#RegisterBtn").click( make_swapActiveContent_callback('signup') );  //is touch friendly?
+//  $("#LoginBtn"   ).click( make_swapActiveContent_callback('report') );  //is touch friendly?  // TODO:  Authenticate
+//  $("#RegisterBtn").click( make_swapActiveContent_callback('signup') );  //is touch friendly?
     $("#AboutBtn"   ).click( make_swapActiveContent_callback('about',  '#AboutBtn')   );  //is touch friendly?
     $("#ContactBtn" ).click( make_swapActiveContent_callback('contact','#ContactBtn') );  //is touch friendly?
     

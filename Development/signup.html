@@ -29,6 +29,7 @@
 
 <section class="login cf col-md-8 col-md-offset-2">
   <form name="login" action="index_submit" method="get" accept-charset="utf-8" autocomplete="off">
+      <!--
       <label class="control-label" for="username">Choose a username</label>
       <input type="text" class="form-control" required id="username" placeholder="username" autofocus>
       <br>
@@ -39,6 +40,7 @@
       <input type="password" class="form-control" required id="retyped_password" placeholder="password">
       <br>
       <label class="control-label" for="password">The institution (e.g. hospital, clinic, or university) that you are affiliated with</label>
+      -->
       <input type="text" class="form-control" required id="institution_name" placeholder="Trinity General" required>
       <br>
       <label class="control-label" for="password">Address of your institution</label>
@@ -47,16 +49,7 @@
       <label class="control-label" for="password">Contact number for verification.</label>
       <input type="number" class="form-control" required id="phone" placeholder="1-234-5678" required>
       <br>
-<!--
-      <input type="submit" id="submit" value="Login" 
 
-    document.getElementById("username"),
-    document.getElementById("password"),
-    document.getElementById("retyped password"),
-    document.getElementById("institution name"),
-    document.getElementById("address"),
-    document.getElementById("phone")
-    -->
     <input type="button" class="btn btn-success"  id="submit_button" value="Sign up!" onClick="addTicket();">
 </form>
 </section>
@@ -74,24 +67,7 @@
 </footer>
 
 </div>
-<!--
-<form role="form">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
 
-  </form>
--->
 
 
   <!-- Firebase CDN -->

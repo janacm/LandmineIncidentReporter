@@ -23,21 +23,21 @@ header .title {
 
 /* * *   Navbar   * * */
 .navbar-custom {
-  background-color: #25457F !important;
+  background-color: #24A4DA !important;  /* 'Dark' Colour */
 }
 
 .navbar-custom a {
   color: #fff !important;
 }
 
-.navbar-custom a:hover {
-  color: #dedede !important;
-  background-color: transparent !important;
+.navbar-custom a:not(.active):hover {
+  /*color: #dedede !important;*/
+  background-color: #39AEDF !important;  /* 'Medium' Colour */
   cursor: pointer;
 }
 
 .navbar-custom .active {
-  background-color: #25457F !important;
+  background-color: #64C0E6 !important;  /* 'Light' Colour */
 }
 
 .navbar-toggle-custom {
@@ -74,15 +74,12 @@ header nav a {
 .footer {
   width: 100%;
   text-align: center;
-  background-color: #25457F;
+  background-color: #24A4DA !important;  /* 'Dark' Colour */
   padding-top: 30px;
   padding-bottom: 2px;
   color: #fff;
   margin-top: 185px;
 }
-
-
-
 
 
 /* EOF */

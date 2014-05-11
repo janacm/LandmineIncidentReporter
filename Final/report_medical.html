@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landmine Incident Reporter</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- Angular CDN -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+    <!-- Firebase CDN -->
+    <script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <!-- AngularFire CDN -->
+    <script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+    <script type="text/javascript" src="data.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Title and Toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- Three-Bar Togle Button (for mobile) -->
+          <button type="button" class="navbar-toggle navbar-toggle-custom" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar icon-custom"></span>
+            <span class="icon-bar icon-custom"></span>
+            <span class="icon-bar icon-custom"></span>
+          </button>
+          <!-- Title -->
+          <a id="HomeBtn" class="navbar-brand">Landmine Incident Reporter</a>
+        </div>
+        
+        <!-- Other Content (which is toggled) -->
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a id="AboutBtn">About the Issue</a></li>  <!--href="about.html"-->
+            <li><a id="ContactBtn">Contact Agencies</a></li>  <!--href="contact.html"-->
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>      
+  </header>
+  <div id="AJAX-swap-content">
+    <!-- <pre>{{Locations}}</pre> -->
+    
+    </div> 
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2 loginSec">  
+        <header>
+            <h1>Landmine Incident Report - Medical</h1>
+        </header>
+        <div class="col-md-8 col-md-offset-2">
+            <form>
+                <!-- IDEA: We should only collect data which people would want to filter by -->
+                <label  class="control-label">Diagnostic Location - Country</label>
+                <input id="country_d" type="text" class="form-control" placeholder="Mexico">
+                <span class="help-block">Enter the country where the person was diagnosed</span>
+
+                <label  class="control-label">Diagnostic Location - City</label>
+                <input id="city_d" type="text" class="form-control" placeholder="Los Pollos">
+                <span class="help-block">Enter the city where the person was diagnosed</span>
+
+                <label class="control-label" >Date Diagnosed</label>
+                <input id="dateDiagnosed" type="text" class="form-control" placeholder="Los Pollos">
+                <span class="help-block">If patient was deceased on arrival, please enter date the patient was discovered</span>
+
+                <label class="control-label">Injury</label>
+                <input id="injury" type="text" class="form-control" placeholder="Unknown/Skip">
+
+                <br>
+                <label class="control-label">Treatment</label>
+                <input id="treatment"type="text" class="form-control" placeholder="Unknown/Skip">
+
+                <br>
+
+                <label  class="control-label">Age</label>
+                <input id="age" type="text" class="form-control" placeholder="Unknown/Skip">
+                <span class="help-block">Age of the victim</span>
+
+                <label  class="control-label">Gender</label>
+                <br>
+                <select id="gender" class="form-control">
+                    <option>Unknown</option>
+                    <option>Other</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <br>    
+
+                <label  class="control-label">Accident Location - Country</label>
+                <input id="country_a" type="text" class="form-control" placeholder="Mexico">
+                <span class="help-block">Enter the country where the accident happened</span>
+
+                <label  class="control-label">Accident Location - City</label>
+                <input id="city_a" type="text" class="form-control" placeholder="Los Pollos">
+                <span class="help-block">Enter the city where the accident happened</span>
+
+                <label class="control-label" >Date Injured</label>
+                <input id="dateInjured" type="text" class="form-control" placeholder="Los Pollos">
+                <span class="help-block">Enter the date of accident.</span>
+
+                <label class="control-label">Type of Explosive</label>
+                <br>
+                <select id="typeofexplosive" class="form-control">
+                    <option>Unknown</option>
+                    <option>Landmine</option>
+                    <option>IED</option>
+                    <option>Other</option>
+                </select>
+                <br>
+
+                <button type="button" class="btn btn-success" onclick="pushIncidentToDB()">Submit</button>
+            </form>
+        </div>
+      </div>  
+    </div> 
+  <footer>
+      <div class="footer">
+        <p>Team, The</p>
+      </div>
+  </footer>  
+</body>
+<script type="text/javascript" src="js/report.js"></script>
+</html>

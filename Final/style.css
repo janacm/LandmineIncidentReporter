@@ -1,0 +1,85 @@
+/*style.css*/
+/**/
+/* Team, The  08/05/14             */
+/* for Landmine Incident Reporter  */
+
+/* CSS Style Sheet : style               */
+/* A file to define CSS used site wide.  */
+
+
+body, html{
+  padding-top: 70px;
+  background:url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png') no-repeat center center fixed;
+  background-color: rgba(0,0,0,0);
+}
+
+/* * *   Header   * * */
+header .title {
+  margin: 0px auto;
+  text-align: center;
+  font-size: 42pt;
+  background: #E00;
+}
+
+/* * *   Navbar   * * */
+.navbar-custom {
+  background-color: #24A4DA !important;  /* 'Dark' Colour */
+}
+
+.navbar-custom a {
+  color: #fff !important;
+}
+
+.navbar-custom a:not(.active):hover {
+  /*color: #dedede !important;*/
+  background-color: #39AEDF !important;  /* 'Medium' Colour */
+  cursor: pointer;
+}
+
+.navbar-custom .active {
+  background-color: #64C0E6 !important;  /* 'Light' Colour */
+}
+
+.navbar-toggle-custom {
+  border: solid 2px white !important;
+}
+
+.icon-custom {
+  background-color: white !important;
+}
+
+/*header nav {
+  display: inline-block;
+}
+
+header nav a {
+  text-decoration: none;
+  text-align: center;
+  vertical-align: center;
+  background: #009;
+}*/
+
+.firstDiv {
+  margin-top: 50px;
+}
+
+.loginSec {
+  background-color: rgba(222,222,222,0.9);
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 15px 30px 30px;
+  margin-top: 45px;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  background-color: #25457F;
+  padding-top: 30px;
+  padding-bottom: 2px;
+  color: #fff;
+  margin-top: 185px;
+}
+
+
+/* EOF */
