@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Landmine Incident Tracker</title>
+    <title>Landmine Incident Reporter</title>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <!-- Latest compiled and minified JavaScript -->
@@ -66,12 +66,24 @@
 			<div class="container">
 				<div class="col-md-8 col-md-offset-2 loginSec">  
 					<header>
-							<h1>Landmine Incident Report - Medical</h1>
+							<h1>Landmine Incident Report - Volunteer</h1>
 					</header>
 					<div class="col-md-8 col-md-offset-2">
 							<form>
 									<!-- IDEA: We should only collect data which people would want to filter by -->
 								
+									<label  class="control-label">Accident Location - Country</label>
+									<input id="country_a" type="text" class="form-control" placeholder="Mexico">
+									<span class="help-block">Enter the country where the accident happened</span>
+
+									<label  class="control-label">Accident Location - City</label>
+									<input id="city_a" type="text" class="form-control" placeholder="Los Pollos">
+									<span class="help-block">Enter the city where the accident happened</span>
+
+									<label class="control-label" >Date Injured</label>
+									<input id="dateInjured" type="text" class="form-control" placeholder="Los Pollos">
+									<span class="help-block">Enter the date of accident.</span>
+
 									<label  class="control-label">Diagnostic Location - Country</label>
 									<input id="country_d" type="text" class="form-control" placeholder="Mexico">
 									<span class="help-block">Enter the country where the person was diagnosed</span>
@@ -82,14 +94,14 @@
 
 									<label class="control-label" >Date Diagnosed</label>
 									<input id="dateDiagnosed" type="text" class="form-control" placeholder="Los Pollos">
-									<span class="help-block">If patient was deceased on arrival, please enter date the patient was discovered</span>
+									<span class="help-block">If victim was deceased on arrival, please enter date the patient was discovered</span>
 
 									<label class="control-label">Injury</label>
 									<input id="injury" type="text" class="form-control" placeholder="Unknown/Skip">
 
 									<br>
-									<label class="control-label">Treatment</label>
-									<input id="treatment"type="text" class="form-control" placeholder="Unknown/Skip">
+									<label class="control-label">Prognosis</label>
+									<input id="prognosis"type="text" class="form-control" placeholder="Unknown/Skip">
 
 									<br>
 
@@ -105,19 +117,7 @@
 											<option>Male</option>
 											<option>Female</option>
 									</select>
-									<br>    
-
-									<label  class="control-label">Accident Location - Country</label>
-									<input id="country_a" type="text" class="form-control" placeholder="Mexico">
-									<span class="help-block">Enter the country where the accident happened</span>
-
-									<label  class="control-label">Accident Location - City</label>
-									<input id="city_a" type="text" class="form-control" placeholder="Los Pollos">
-									<span class="help-block">Enter the city where the accident happened</span>
-
-									<label class="control-label" >Date Injured</label>
-									<input id="dateInjured" type="text" class="form-control" placeholder="Los Pollos">
-									<span class="help-block">Enter the date of accident.</span>
+									<br> 
 
 									<label class="control-label">Type of Explosive</label>
 									<br>
@@ -134,8 +134,7 @@
 					</div>
 				</div>  
 			</div>
-		
-    </div>
+		</div>
   </div>  <!-- /#not-footer -->
   <footer>
 		<!--p>Team, The</p-->

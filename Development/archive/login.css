@@ -28,10 +28,10 @@ form input {
 
 .btn-success {
 	background-image: none !important;
-	background-color: #25457F !important; 
-	border-color: #3460B2 !important;
+	background-color: #25457F !important;  /* Darker Colour */
+	border-color: #213d70 !important;  /* Darker 'lowlight' Colour */
 }
 
 .btn-success:hover {
-	background-color: #3460B2 !important;
+	background-color: #213d70 !important;  /* Darker 'lowlight' Colour */
 }

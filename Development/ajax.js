@@ -31,13 +31,13 @@
   /* * * * * * * * * * * * * * * * * * * * *
    Private Variables
    * * * * * * * * * * * * * * * * * * * * */
-  var $pages = { 'home'    : {'title':undefined,'content':undefined},
-                 'about'   : {'title':undefined,'content':undefined},
-                 'contact' : {'title':undefined,'content':undefined},
-               //'signup'  : {'title':undefined,'content':undefined},
-                 'report'  : {'title':undefined,'content':undefined},
-                 'report_medical'   : {'title':undefined,'content':undefined},
-                 'report_military'  : {'title':undefined,'content':undefined}
+  var $pages = { 'home'              : {'title':undefined,'content':undefined},
+                 'about-static'      : {'title':undefined,'content':undefined},
+                 'contact-static'    : {'title':undefined,'content':undefined},
+               //'signup'            : {'title':undefined,'content':undefined},
+                 'report_volunteer'  : {'title':undefined,'content':undefined},
+                 'report_medical'    : {'title':undefined,'content':undefined},
+                 'report_military'   : {'title':undefined,'content':undefined}
                 };
   
   
@@ -67,11 +67,11 @@
   }
   
   function storePageInLocalStorageHTML5( pageName, activeID ) {
-    if (supportsLocalStorageHTML5()) {
-      localStorage.setItem('lastViewedPage', pageName);
-      localStorage.setItem('lastActiveElem', activeID);
-      localStorage.setItem('lastViewedTime', new Date().toISOString());
-    }
+//     if (supportsLocalStorageHTML5()) {
+//       localStorage.setItem('lastViewedPage', pageName);
+//       localStorage.setItem('lastActiveElem', activeID);
+//       localStorage.setItem('lastViewedTime', new Date().toISOString());
+//     }
   }
   
   
@@ -194,10 +194,10 @@
      Asynchronous Pre-Load
      * * * * * * * * * * * * * * * * * * * * */
     // Setup callback chain...
-    var load_contact = make_loadContent_callback('contact',    undefined);
-    var load_about   = make_loadContent_callback('about',      load_contact);
-//  var load_signup  = make_loadContent_callback('signup',     load_about);
-    var load_pubReport  = make_loadContent_callback('report',  load_about);
+    var load_contact = make_loadContent_callback('contact-static',      undefined);
+    var load_about   = make_loadContent_callback('about-static',        load_contact);
+//  var load_signup  = make_loadContent_callback('signup',              load_about);
+    var load_pubReport  = make_loadContent_callback('report_volunteer', load_about);
     var load_medReport  = make_loadContent_callback('report_medical',   load_pubReport);
     var load_milReport  = make_loadContent_callback('report_military',  load_medReport);
     
@@ -210,11 +210,11 @@
     /* * * * * * * * * * * * * * * * * * * * *
      Click Handlers
      * * * * * * * * * * * * * * * * * * * * */
-    $("#HomeBtn"    ).click( make_swapActiveContent_callback('home')   );  //is touch friendly?
-//  $("#LoginBtn"   ).click( make_swapActiveContent_callback('report') );  //is touch friendly?  // TODO:  Authenticate
-//  $("#RegisterBtn").click( make_swapActiveContent_callback('signup') );  //is touch friendly?
-    $("#AboutBtn"   ).click( make_swapActiveContent_callback('about',  '#AboutBtn')   );  //is touch friendly?
-    $("#ContactBtn" ).click( make_swapActiveContent_callback('contact','#ContactBtn') );  //is touch friendly?
+    $("#HomeBtn"    ).click( make_swapActiveContent_callback('home')             );  //is touch friendly?
+//  $("#LoginBtn"   ).click( make_swapActiveContent_callback('report_volunteer') );  //is touch friendly?  // TODO:  Authenticate
+//  $("#RegisterBtn").click( make_swapActiveContent_callback('signup')           );  //is touch friendly?
+    $("#AboutBtn"   ).click( make_swapActiveContent_callback('about-static',  '#AboutBtn')   );  //is touch friendly?
+    $("#ContactBtn" ).click( make_swapActiveContent_callback('contact-static','#ContactBtn') );  //is touch friendly?
     
   });  //end $(document).ready()
   

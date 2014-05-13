@@ -1,8 +1,11 @@
 function pushIncidentToDB(){
     var myDataRef = new Firebase('https://landmine.firebaseio.com/');
     var typeofreport = "military";
+    var GPS_lat = $("#GPS_lat").val();
+    var GPS_lng = $("#GPS_lng").val();
+
     var city_accident = $("#city_a").val();
-    var date = $("#dateInjured").val();
+    var date_injured = $("#dateInjured").val();
     var age = $("#age").val();
     var gender = $("#gender").val();
     var type = $("#typeofexplosive").val();
@@ -13,7 +16,19 @@ function pushIncidentToDB(){
 
     console.log("works1"); //here
     // myDataRef.push({country:" country"});
-    myDataRef.push({city:city, country:country, city:city, date:date, age:age, gender:gender, type:type, injury:injury, treatment:treatment, nameofvictim:nameofvictim});
-    console.log("works2"); //here
+    myDataRef.push({
+        typeofreport:typeofreport
+        city_accident:city_accident, 
+        country_accident:country_accident, 
+        date_injured:date_injured, 
+        age:age,
+        gender:gender,
+        type:type, 
+        injury:injury, 
+        treatment:treatment
+    });
+
+    });
+    console.log("military form was submitted"); //here
     // myDataRef.set('Country ' + Country);
 }

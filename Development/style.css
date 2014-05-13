@@ -7,48 +7,96 @@
 /* A file to define CSS used site wide.  */
 
 
-body, html{
-  padding-top: 70px;
-  background:url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png') no-repeat center center fixed;
-  background-color: rgba(0,0,0,0);
+/* * * * * * * * * * * * * * * * * * * * * * * * *
+ *            Colours                            *
+ * * * * * * * * * * * * * * * * * * * * * * * * *
+ * 
+ * This site uses a 4-colour scheme:
+ *   (in order from lightest to darkest)
+ *
+ *   -> Lighter highlight Colour
+ *   -> Lighter Colour
+ *   -> Darker Colour
+ *   -> Darker 'lowlight' Colour
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * *
+ */
+
+
+/* * * * * * * * * * * * * * * * * * * *
+ *               Overall               *
+ * * * * * * * * * * * * * * * * * * * */
+body,
+html {
+  background: #213d70;  /* Darker 'lowlight' Colour */
+  background: url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png') no-repeat center center fixed,
+              #213d70;  /* Darker 'lowlight' Colour */
+  background-size: cover;
 }
 
-/* * *   Header   * * */
+#not-footer {
+  padding-top: 70px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * *
+ *               Header                *
+ * * * * * * * * * * * * * * * * * * * */
 header .title {
   margin: 0px auto;
   text-align: center;
   font-size: 42pt;
-  background: #E00;
 }
 
-/* * *   Navbar   * * */
+.container-fluid {
+  padding-right: 0;
+}
+
+/* * * * * * * * * * * * * * * * * * * *
+ *               Navbar                *
+ * * * * * * * * * * * * * * * * * * * */
 .navbar-custom {
-  background-color: #24A4DA !important;  /* 'Dark' Colour */
+  background-color: #E2E5E4 !important;  /* Darker Colour */
 }
 
 .navbar-custom a {
-  color: #fff !important;
+  color: #000 !important;
+  font-size: 1.1em;
 }
 
-.navbar-custom a:not(.active):hover {
-  /*color: #dedede !important;*/
-  background-color: #39AEDF !important;  /* 'Medium' Colour */
+.navbar-nav a:not(.active):hover {
+  /*background-color: #EEEFEF !important;  /* Lighter highlight Colour */*/
   cursor: pointer;
+  color: #fff !important;
+  background-color: #B70606 !important;
 }
 
-.navbar-custom .active {
-  background-color: #64C0E6 !important;  /* 'Light' Colour */
+.navbar-nav .active {
+  /*background-color: #3F6FC7 !important;  /* Lighter Colour */*/
+  /*color: #EEEFEF;*/
+  color: #fff !important;
+  background-color: #BE1F1F !important;
 }
 
 .navbar-toggle-custom {
-  border: solid 2px white !important;
+  border: solid 2px #000 !important;
 }
 
 .icon-custom {
-  background-color: white !important;
+  background-color: #000 !important;
 }
 
-/*header nav {
+.navbar-nav {
+  cursor: pointer;
+}
+
+.links {
+  padding: 45px !important;
+}
+
+
+/* * * Old Navbar * * *
+header nav {
   display: inline-block;
 }
 
@@ -57,12 +105,21 @@ header nav a {
   text-align: center;
   vertical-align: center;
   background: #009;
-}*/
+}
+* * * * * * * * * * * */
 
+
+/* * * * * * * * * * * * * * * * * * * *
+ *               Content               *
+ * * * * * * * * * * * * * * * * * * * */
 .firstDiv {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
+
+/* * * * * * * * * * * * * * * * * * * *
+ *                Login                *
+ * * * * * * * * * * * * * * * * * * * */
 .loginSec {
   background-color: rgba(222,222,222,0.9);
   border: 1px solid #000;
@@ -71,14 +128,89 @@ header nav a {
   margin-top: 45px;
 }
 
-.footer {
+h1 {
+	font-size: 2em;
+	padding-bottom: 20px;
+}
+
+form input {
+	margin-bottom: 10px;
+}
+
+.loginBtn {
+	width: 100%;
+	height: 105px;
+	margin-top: 23px;
+}
+
+.registerBtn {
+	width: 100%;
+	height: 105px;
+	margin-top: 23px;
+	padding-top: 40px !important;
+	font-size: 1.2em !important;
+}
+
+.btn-success {
+	background-image: none !important;
+	background-color: #B70606 !important;  /* Darker Colour */
+	border-color: #000 !important;  /* Darker 'lowlight' Colour */
+}
+
+.btn-success:hover {
+	background-color: #BE1F1F !important;  /* Darker 'lowlight' Colour */
+}
+
+
+/* * * * * * * * * * * * * * * * * * * *
+ *               Footer                *
+ * * * * * * * * * * * * * * * * * * * */
+footer {
   width: 100%;
   text-align: center;
-  background-color: #24A4DA !important;  /* 'Dark' Colour */
   padding-top: 30px;
   padding-bottom: 2px;
-  color: #fff;
-  margin-top: 185px;
+  color: #FFF;
+  background-color: #B70606;  /* Darker Colour */
+}
+
+
+/* * * * * * * * * * * * * * * * * * * *
+ *           Sticky Footer             *
+ * * * * * * * * * * * * * * * * * * * */
+html,
+body {
+	height: 100%;  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#not-footer {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;  /* negative fixed footer height */
+}
+
+/* Footer-Push to take up space that footer would otherwise fill */
+#not-footer::after {
+  content: "";
+  display: block;
+  margin-top: 50px;  /* footer padding */
+	height: 60px;  /* fixed footer height */
+}
+
+footer {
+  height: 60px;  /* fixed footer height */
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+	footer {
+		/*margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;*/
+	}
 }
 
 

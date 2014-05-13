@@ -15,9 +15,33 @@ function pushIncidentToDB(){
     var country_accident = $('#country_a').val();
     var country_diagnosed = $('#country_d').val();
 
-    console.log("works1"); //here
+    console.log("works1"); //here 
     // myDataRef.push({country:" country"});
-    myDataRef.push({city:city, country:country, city:city, date:date, age:age, gender:gender, type:type, injury:injury, treatment:treatment, nameofvictim:nameofvictim});
-    console.log("works2"); //here
+    myDataRef.push({
+        typeofreport:typeofreport,
+        city_accident:city_accident, 
+        country_accident:country_accident, 
+        city_diagnosed:city_diagnosed, 
+        country_diagnosed:country_diagnosed, 
+        date_injured:date_injured, 
+        date_diagnosed:date_diagnosed, 
+        age:age,
+        gender:gender,
+        type:type, 
+        injury:injury, 
+        prognosis:prognosis}, func);
+    // console.log("volunteer form was submitted"); //here
+    // setTimeout(func, 10);
+
+    // alert("pushed to DB"); //here
+    // window.location.replace("home.html");
+    // window.location.href("home.html"); //doesn't work?!
+
     // myDataRef.set('Country ' + Country);
+    /*document.getElementById("status").innerHTML = 'Your registration request has been submitted. We will contact you once we verify your information!'; 
+    document.getElementById("submit_button").disabled = true;*/
+}
+
+function func (){
+    window.location.replace("home.html");
 }

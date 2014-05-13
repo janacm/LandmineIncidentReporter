@@ -1,0 +1,20 @@
+Found by Roy, 12:10am May 12.
+***
+
+A) Firebase
+1. reports from medical and military HTML pages are NOT being pushed. It seems pushIncidentToDB() isn't being called in their respective JS files.
+2. The volunteer report is being pushed, but under strange names (derived from some kind of token?) such as JMnaerhkZfePpSmVJJD. It is possible to have it to to what we want.
+Example of what we have: https://shining-fire-2988.firebaseio.com/
+Example of what we could have: https://samplechat.firebaseio-demo.com/users/ if we follow this tutorial https://www.firebase.com/docs/ordered-data.html
+
+B) default text changes: 
+1. date injured, diagnosed's default are cities.
+
+2. GPS coordinates: add text to tell the user to enter a number outside of the GPS range if they don't know. Default text it to this too.
+
+3. Should we use a different data type than strings for dates? example code: http://www.informationbuilders.com/support/developers/javascript-validate-date-entry
+
+C) naming convention: change typeofreport to type_of_report in js so it is the same style as the other variables
+
+
+***

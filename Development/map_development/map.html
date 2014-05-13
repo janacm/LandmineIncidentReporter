@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  html, body, #map_canvas { margin: 0; padding: 0; height: 100%; }
+  </style>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization">
+  </script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'>
+    </script>
+  <script type="text/javascript" src="map.js"></script>
+    
+
+
+  </head>
+    <body onload="initialize()">
+      
+      <label class="control-label" >Address</label>
+              <input id="inputTextAddress" type="text" class="form-control" placeholder="Los Pollos">
+<button type="button" onclick="codeAddress()">Translate to marker</button>
+              
+      <div id="map_canvas"></div>
+
+    </body>
+    </html>
+
+
