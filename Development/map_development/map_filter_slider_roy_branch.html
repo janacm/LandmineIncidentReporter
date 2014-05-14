@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  html, body, #map_canvas { margin: 0; padding: 0; height: 100%; }
+
+  div.map_legend {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #000;
+  }
+
+  /*map filter styles begin*/
+  #filterBox{
+    position: relative;
+    top: 39%;
+  }
+
+  #textBottom{
+    border: 1px solid black;
+    padding: 10px;
+    margin:10px;
+    height: 100px;
+
+  }
+  /*map filter styles end*/
+
+
+  </style>
+  <!-- maps -->
+  <script
+  src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization">
+  </script>
+  <script type="text/javascript" src="map_filter_slider.js"></script>
+
+  <!-- jquery -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'>
+  </script>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  <!-- slider -->
+  <script type="text/javascript" src="bootstrap-slider.js"></script>
+  <link rel="stylesheet" type="text/css" href="slider.css">
+  <script type="text/javascript">
+    $("#ex8").slider({
+      tooltip: 'show'
+    });
+  </script>
+
+</head>
+<body onload="initialize()">
+  <div id="textBottom">
+    <div id="filterBox">
+        <label class="control-label">Show incidents where the victim age ranges between:</label>
+        <b>0</b> <input id="ageSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="122" data-slider-step="1" data-slider-value="[5,80]"/> <b>122</b>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="control-label">Show incidents where the accident occured between the year:</label>
+        <b>1900</b> <input id="dateSlider" type="text" class="span2" value="" data-slider-min="1900" data-slider-max="2014" data-slider-step="1" data-slider-value="[1990,2014]"/> <b>2014</b>
+
+        <button type="button" onclick="filterMap()">Filter</button>
+
+    </div>
+  </div>
+    <!-- maps -->
+    <div id="map_canvas"></div>
+    <div id="legend" class="map_legend"></div>
+</body>
+<script type="text/javascript">
+  $("#ex8").slider({
+    tooltip: 'always'
+  });
+
+  $("#ageSlider").slider({
+    tooltip: 'show'
+   });
+
+    $("#dateSlider").slider({
+    tooltip: 'show'
+   });
+
+/*
+  $('#dateSlider').slider({
+    formater: function(value) {
+        return value;
+    }
+  });*/
+</script>  
+
+<!-- http://seiyria.github.io/bootstrap-slider/ -->
+</html>
+
+
+

@@ -1,13 +1,5 @@
 <!DOCTYPE html>
-<!--
- //home.html
- //
- // Team, The  08/05/14            //
- // for Landmine Incident Tracker  //
- 
- // Homepage : home
- // A landing page which allows quick access to login and signup.
- -->
+<!-- MAP PAGE -->
 
 
 <html>
@@ -27,11 +19,11 @@
     <!-- - - - - - - - - - - - - - - - - - - -
      Page Attributes
      - - - - - - - - - - - - - - - - - - - -->
-    <title>Landmine Incident Tracker</title>
+    <title>Incident Map</title>
     <meta name="Author"                 content="Team, The">
-    <meta name="Description" lang="en"  content="The homepage of the Landmine Incident Tracker.">
-    <meta name="Keywords"    lang="en"  content="Landmine, Landmines, Incident Report">
-    <link rel="icon"             type="image/x-icon" href="images/favicon.ico"-->
+    <meta name="Description" lang="en"  content="Map of Reported Incidents page for the Landmine Incident Tracker.">
+    <meta name="Keywords"    lang="en"  content="Landmine, Landmines, Map, Demining Effort, Incident Tracking">
+    <link rel="icon"             type="image/png" href="images/favicon.png"-->
     <link rel="apple-touch-icon" type="image/png" href="images/favicon.png"-->
     
     <!-- - - - - - - - - - - - - - - - - - - -
@@ -39,8 +31,9 @@
      - - - - - - - - - - - - - - - - - - - -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.cox`m/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/map.css">
     
   </head>
   
@@ -49,15 +42,15 @@
    - - -                        BODY                                     - - -
    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <body>
-    
-    
+  
+  
     <div id="not-footer">
-		
-		
-			<!-- - - - - - - - - - - - - - - - - - - -
-			 Header
-			 - - - - - - - - - - - - - - - - - - - -->
-		
+  
+  
+      <!-- - - - - - - - - - - - - - - - - - - -
+       Header
+       - - - - - - - - - - - - - - - - - - - -->
+    
 			<header>
 				<nav class="navbar navbar-custom navbar-fixed-top container-fluid" role="navigation">
 				  
@@ -80,7 +73,7 @@
           <!-- Other Content (which is toggled) -->
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a id="MapBtn" href="map.html">View Map</a></li>
+              <li><a id="MapBtn" href="map.html" class="active">View Map</a></li>  <!-- hardcoded .active -->
               <li><a id="AboutBtn" href="about-static.html">About the Issue</a></li>
               <li><a id="ContactBtn" href="contact-static.html">Contact Agencies</a></li>
               <li><a id="DownloadBtn"
@@ -91,65 +84,46 @@
           
 				</nav>
 			</header>
-		
-		
-			<div id="AJAX-swap-parent">
-				<div id="AJAX-swap-content">
-				
-					<!-- - - - - - - - - - - - - - - - - - - -
-					 Log In / Register
-					 - - - - - - - - - - - - - - - - - - - -->
-				
-					<div class="container firstDiv">
-						<div class="col-md-8 col-md-offset-2 loginSec">  
-							<h1>I want to report a landmine incident as a...</h1>
-							<form class="" name="login" id="login" action="" method="get">
-								<div class="col-md-4">
-									<a id="RegisterBtn" class="btn btn-success col-md-4 registerBtn" href="report_volunteer.html">Public Citizen</a> <!-- Nick Belland thought of this. -->
-								</div>
-								<div class="col-md-4">
-									<a id="LoginBtn" class="btn btn-success col-md-4 registerBtn" href="report_medical.html">Medical Professional</a>  
-								</div>
-								<div class="col-md-4">
-									<a id="LoginBtn" class="btn btn-success col-md-4 registerBtn" href="report_military.html">Military Personnel</a>  
-								</div>
-							</form>
-						</div>		<!-- /loginSec -->		
-				
-  					<!-- - - - - - - - - - - - - - - - - - - -
-  					 Map Button
-  					 - - - - - - - - - - - - - - - - - - - -->
-  				
-            <div class="row">
-              <a class="btn btn-success col-md-offset-4 homePageMapBtn" href="map.html">View Data on Map</a>  
-            </div>
+    
+    
+      <!-- - - - - - - - - - - - - - - - - - - -
+       Content
+       - - - - - - - - - - - - - - - - - - - -->
+    
+      <div id="AJAX-swap-content" class="container-fluid">  <!-- enable AJAX switching -->
+        <div class="col-md-8 col-md-offset-2 map_contain">
 
-          </div>  <!-- /container -->
-			
-				</div>  <!-- /#AJAX-swap-content -->
-			</div>  <!-- /#AJAX-swap-parent -->
-		
-		
-		</div>  <!-- /#not-footer -->
+          <label class="control-label" >Address</label>
+          <input id="inputTextAddress" type="text" class="form-control" placeholder="Los Pollos">
+          <button type="button" onclick="codeAddress()">Translate to marker</button>
+                  
+          <div id="map_canvas"></div>
+
+        </div> <!-- end of centered column -->
+      </div> <!-- end of AJAX swappie-goodness -->
+    
+    
+    </div>  <!-- /#not-footer -->
     
     
     <!-- - - - - - - - - - - - - - - - - - - -
      Footer
      - - - - - - - - - - - - - - - - - - - -->
     
-		<footer>
-			<p>Team, The</p>
-		</footer>
+    <footer>
+      <p>Team, The</p>
+    </footer>
     
     
-    <!-- - - - - - - - - - - - - - - - - - - -
-     Scripts
-     - - - - - - - - - - - - - - - - - - - -->
+    <!-- some js stuff that's important for stuff -->
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
     <script src="https://cdn.firebase.com/js/simple-login/1.4.1/firebase-simple-login.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-   
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"> </script>
+    <script type="text/javascript" src="scripts/map.js"></script>
+
   </body>
   
   

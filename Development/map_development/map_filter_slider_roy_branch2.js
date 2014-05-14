@@ -25,12 +25,53 @@ var geocoder;
 
 function initialize() {
   var mapOptions = {
-    zoom: 2,
-    center: new google.maps.LatLng(2.8,-187.3),
-    mapTypeId: google.maps.MapTypeId.SATELLITE 
+    zoom:   2,
+    center: {lat: 25, lng: 10},  // TODO: nice to use geo API to center on user
+    overviewMapControl: false,
+    streetViewControl:  false,
+    mapTypeControl:     false,
+    mapTypeId:          google.maps.MapTypeId.SATELLITE,
+    panControl:         true,
+    rotateControl:      false,
+    scaleControl:       false,
+    scrollwheel:        false,
+    zoomControl:        true,
+    zoomControlOptions: {style: google.maps.ZoomControlStyle.SMALL}
+    //styles: [MAGIC]  Styles to apply to each of the default map types. Note that for Satellite/Hybrid and Terrain modes, these styles will only apply to labels and geometry.
+    // SEE: https://developers.google.com/maps/documentation/javascript/reference?csw=1#MapTypeStyle
+    // SEE: https://developers.google.com/maps/documentation/javascript/reference?csw=1#MapTypeStyleElementType
   };
   map = new google.maps.Map(document.getElementById('map_canvas'),
     mapOptions);
+  
+  var centerListenter = google.maps.event.addListener(map, 'center_changed', checkBounds);
+  
+  
+  //when zoom == 2,  use lat = -35/35
+  //when zoom == 3,  use lat = -73.3/73.3
+  //when zoom == 5,  use lat = -83.3/83.3
+  //when zoom == 7,  use lat = -84.6/84.6
+  var max_center_lat = 35;
+  var allowedBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(-max_center_lat, -180),
+    new google.maps.LatLng( max_center_lat,  180));
+  //new google.maps.Rectangle({map: map}).setBounds(allowedBounds);
+
+  function checkBounds() {
+    if (centerListenter)
+      google.maps.event.removeListener(centerListenter);
+//     console.log(map.getCenter().lat());
+//     console.log(map.getCenter().lng());
+    if( !allowedBounds.contains(map.getCenter()) ) {
+      var mapCenter = map.getCenter();
+      var c_lat = mapCenter.lat();
+      var c_lng = mapCenter.lng();
+      var new_lat = ( c_lat >= 0 ? max_center_lat : -max_center_lat );
+      var new_lng = c_lng;  //just move vertically
+      map.setCenter(new google.maps.LatLng(new_lat,new_lng));
+    }
+    centerListenter = google.maps.event.addListener(map, 'center_changed', checkBounds);
+  }
 
   filterMap();
 
@@ -72,6 +113,7 @@ function initialize() {
   }
   ];
   map.setOptions({styles: map_styles});
+
 }
 
 //grabs JSON file and loops through each report

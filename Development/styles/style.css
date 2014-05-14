@@ -29,7 +29,7 @@
 body,
 html {
   background: #BE1F1F;  /* Darker 'lowlight' Colour */
-  background: url('http://misshelen.files.wordpress.com/2010/09/house-in-minefield.jpg')
+  background: url('../images/landmines_background.jpg')
               no-repeat center center fixed,
               #BE1F1F;  /* Darker 'lowlight' Colour */
   background-size: cover;
@@ -82,10 +82,15 @@ header .title {
 
 .navbar-toggle-custom {
   border: solid 2px #000 !important;
+  margin-top: 30px;
+  margin-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .icon-custom {
-  background-color: #000 !important;
+  background-color: #B70606 !important;
+  width: 40px !important;
 }
 
 
@@ -120,7 +125,7 @@ header nav a {
  *               Content               *
  * * * * * * * * * * * * * * * * * * * */
 .firstDiv {
-  margin-top: 70px;
+  margin-top: 40px;
 }
 
 
@@ -185,7 +190,7 @@ form input {
 footer {
   width: 100%;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 20px;
   padding-bottom: 2px;
   color: #FFF;
   background-color: #B70606;  /* Darker Colour */
@@ -206,6 +211,7 @@ body {
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -60px;  /* negative fixed footer height */
+  padding-top: 110px;
 }
 
 /* Footer-Push to take up space that footer would otherwise fill */
@@ -229,6 +235,5 @@ footer {
 		padding-right: 20px;*/
 	}
 }
-
 
 /* EOF */

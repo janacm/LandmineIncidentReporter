@@ -38,9 +38,9 @@ function initialize() {
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].
   push(document.getElementById('legend')); 
   var label_accident = "Accident location";
-  var icon_accident = 'marker_accident.png';
+  var icon_accident = 'images/marker_accident.png';
   var label_diagnosed = "Diagnostic location";
-  var icon_diagnosed = 'marker_diagnosed.png';
+  var icon_diagnosed = 'images/marker_diagnosed.png';
   $('#legend').html('Legend'+'<br>'+
     '<img src="' + icon_accident + '"> ' + label_accident
     +'<br>'

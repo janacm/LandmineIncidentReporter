@@ -1,20 +1,46 @@
 demo notes.txt
 
-- make sure all links/buttons work
+- [DONE] make sure all links/buttons work
      - or remove things that are not done
      - clients don't understand "work in progress items"
-- show user review form
-- "what if ___ could be "
-- have a real company name
-- existing solutions vs what we have
+- [DONE] show user review form
+- [DONE] have a real company name
 - how we got to our solutions
     - robotic rats, bomb-gamification
-- user testing
+- [DONE] user testing
+----------------------------------------done-------------------------
+
 
 -start with problem state i.e.
-    - 65000 
+    - 26000 people kill/maimed a year
 
+- "what if ___ could be "
+- existing solutions vs what we have
+- data visualization
+    - map points
+    - downloading
+    
 - selfish reason for getting involved
-    - gamification!
-    - incentive?
-    - tax credit?
+    - altruism
+
+    
+future stuff to add:
+- security (logging in, double checking inputted info)
+- multiple languages
+- better mobile functionality (some already, but not perfect)
+- (anything that doesn't get included today)
+
+
+Websites with conflicting stats on landmines incidents:
+
+  http://www.un.org/en/globalissues/demining/
+
+  http://www.care.org/emergencies/facts-about-landmines
+
+  http://newint.org/features/1997/09/05/facts/
+
+  http://landminesinafrica.wordpress.com/all-about-landmines-an-faq-of-infrequently-asked-questions/
+
+  http://newint.org/easier-english/landmine/lmfacts.html
+
+  http://www.theguardian.com/world/defence-and-security-blog/2012/dec/03/landmines-arms-controls

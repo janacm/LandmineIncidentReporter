@@ -1,23 +1,4 @@
-/* 
-  This script grabs JSON data from Firebase, filters out the data that
-  doesn't satisfy the display criteria, and displays it on a map. The
-  display criteria is specified by sliders, and the map uses the Google
-  Maps Javascript API V3. Google's geocoding service is used, which has
-  a daily limit around 2000 hits. This script is run during initialization
-  of the map, and when the "Filter" button is clicked.
-
-  Future works: 
-  1) This script pulls the remote JSON data every time the Filter button 
-  is pressed, and this data requires geocoding. We can save all data 
-  during initialization to an array (i.e. markers_array), and just choose
-  which data should be displayed when the "Filter" button is clicked.
-  2) We are not plotting military reports that only have the 
-  "GPS coordinate" field filled out. This map only consider reports if
-  "accident city", "accident country", "diagnostic city", or 
-  "diagnostic city" are filled in the report.
-
-
-*/
+// IMPORTANT: CHANGE LINE 18 to https://landmine.firebaseio.com/
 var map;
 var markers_array = [];
 var geocoder;
@@ -32,20 +13,11 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map_canvas'),
     mapOptions);
 
-  filterMap();
+  // Create a script tag and set the USGS URL as the source.
+  //  https://shining-fire-2988.firebaseio.com/.json
+  //  https://landmine.firebaseio.com/.json
 
-  // code for map legend
-  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].
-  push(document.getElementById('legend')); 
-  var label_accident = "Accident location";
-  var icon_accident = 'marker_accident.png';
-  var label_diagnosed = "Diagnostic location";
-  var icon_diagnosed = 'marker_diagnosed.png';
-  $('#legend').html('Legend'+'<br>'+
-    '<img src="' + icon_accident + '"> ' + label_accident
-    +'<br>'
-    +'<img src="' + icon_diagnosed + '"> ' + label_diagnosed);
-  // end of the code for map legend
+  filterMap();
 
   geocoder=new google.maps.Geocoder();
 
@@ -74,7 +46,8 @@ function initialize() {
   map.setOptions({styles: map_styles});
 }
 
-//grabs JSON file and loops through each report
+//grabs JSON file and loops through each entry
+//"https://shining-fire-2988.firebaseio.com/.json"
 function filterMap()
 {
   deleteMarkers();
@@ -89,24 +62,35 @@ function filterMap()
     var current_year = current_time.getFullYear();
 
     for (var entry in data) 
-    {  
+    {  // need to get index of an element (i.e. json[0] is undefined)
+
+
       var age = parseInt(data[entry].age);
 
-      // we just need to fetch the year
+
+// we just need to fetch the year
       var date_string=data[entry].date_injured;
+
       var date_parts = date_string.split("/");
       var date_obj = new Date(  parseInt(date_parts[2], 10),
                                 parseInt(date_parts[1], 10)-1,
                                 parseInt(date_parts[0], 10));
+
       var date_injured= date_obj.getFullYear();
 
+      //var age_lb=$('#ageSlider').slider('getValue');
       var age_limits=$('#ageSlider').data('slider').getValue();
       var age_lb=age_limits[0];
       var age_ub=age_limits[1];
+
+      //var age_lb=19; //lower decision boundary on age
+      //var age_ub=21; //upper decision boundary on age
       
       var date_limits=$('#dateSlider').data('slider').getValue();
       var date_lb=date_limits[0];
       var date_ub=date_limits[1];
+      //var date_lb=2000; //lower decision boundary on age
+      //var date_ub=2014;//upper decision boundary on age
 
       // 1) The ith element of data_status indicates whether the current data
       // entry (the current report) satisfies the range specified by ith slider
@@ -121,11 +105,13 @@ function filterMap()
         data_status[0]=false;
       }
 
+
       if( (date_injured=="") || (date_injured< 1900) || (date_injured > current_year))
       {
         data_status[1]=false;
       }
 
+      data_status[1]=true;//debug only
       var plot_flag=true;
       for (var i = 0; i < data_status.length; i++) 
       { 
@@ -145,9 +131,21 @@ function filterMap()
         var marker_accident = 'marker_accident.png';
         prepAddress(city_accident,country_accident,marker_accident);
       }
+      
+
     }
 
-
+    // legend
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].
+    push(document.getElementById('legend')); 
+    var label_accident = "Accident location";
+    var icon_accident = 'marker_accident.png';
+    var label_diagnosed = "Diagnostic location";
+    var icon_diagnosed = 'marker_diagnosed.png';
+    $('#legend').html('Legend'+'<br>'+
+      '<img src="' + icon_accident + '"> ' + label_accident
+      +'<br>'
+      +'<img src="' + icon_diagnosed + '"> ' + label_diagnosed);
 
   });
 }
@@ -169,16 +167,20 @@ function prepAddress(first_choice,second_choice,icon_src)
 https://developers.google.com/maps/documentation/javascript/geocoding */
 function codeAddress(sAddress,icon_src)
 {
+  //var sAddress = document.getElementById("inputAddress").value;
   geocoder.geocode({ 'address':sAddress}, 
     function(results,status)
     {
 
       if(status==google.maps.GeocoderStatus.OK)
       {
+        map.setCenter(results[0].geometry.location);
+
         var marker = new google.maps.Marker({
           map:map,
           position:results[0].geometry.location,
           icon: icon_src
+          //
         });
         markers_array.push(marker);
       }
