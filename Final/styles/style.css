@@ -28,9 +28,11 @@
  * * * * * * * * * * * * * * * * * * * */
 body,
 html {
-  background: #213d70;  /* Darker 'lowlight' Colour */
-  background: url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png') no-repeat center center fixed,
-              #213d70;  /* Darker 'lowlight' Colour */
+  background: #BE1F1F;  /* Darker 'lowlight' Colour */
+  background: url('../images/photo-green-land-mine.jpg')
+              /* url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png')   <-- BUT CAN U CLIK IT? */
+              no-repeat center center fixed,
+              #BE1F1F;  /* Darker 'lowlight' Colour */
   background-size: cover;
 }
 
@@ -48,35 +50,58 @@ header .title {
   font-size: 42pt;
 }
 
+.container-fluid {
+  padding-right: 0;
+}
 
 /* * * * * * * * * * * * * * * * * * * *
  *               Navbar                *
  * * * * * * * * * * * * * * * * * * * */
 .navbar-custom {
-  background-color: #25457F !important;  /* Darker Colour */
+  background-color: #E2E5E4 !important;  /* Darker Colour */
 }
 
 .navbar-custom a {
-  color: #FFF !important;
+  color: #000 !important;
+  font-size: 1.1em;
+  height: 100%;
 }
 
-.navbar-custom a:not(.active):hover {
-  color: #FFF !important;
-  background-color: #5D86D0 !important;  /* Lighter highlight Colour */
+.navbar-nav a:not(.active):hover {
+  /*background-color: #EEEFEF !important;  /* Lighter highlight Colour */
   cursor: pointer;
+  color: #FFF !important;
+  background-color: #BE1F1F !important;
 }
 
-.navbar-custom .active {
-  background-color: #3F6FC7 !important;  /* Lighter Colour */
+.navbar-nav .active {
+  /*background-color: #3F6FC7 !important;  /* Lighter Colour */
+  /*color: #EEEFEF;*/
+  color: #FFF !important;
+  background-color: #B70606 !important;
 }
 
 .navbar-toggle-custom {
-  border: solid 2px white !important;
+  border: solid 2px #000 !important;
 }
 
 .icon-custom {
-  background-color: white !important;
+  background-color: #000 !important;
 }
+
+
+.navbar-brand {
+  color: black;
+}
+
+.navbar-nav {
+  cursor: pointer;
+}
+
+.navbar-nav li>a {
+  padding: 45px 20px !important;
+}
+
 
 /* * * Old Navbar * * *
 header nav {
@@ -96,7 +121,7 @@ header nav a {
  *               Content               *
  * * * * * * * * * * * * * * * * * * * */
 .firstDiv {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 
@@ -134,14 +159,24 @@ form input {
 	font-size: 1.2em !important;
 }
 
+.homePageMapBtn {
+  height: 60px;
+  width: 405px;
+  margin-top: 23px;
+  padding-top: 18px !important;
+  font-size: 1.2em !important;
+}
+
+
+
 .btn-success {
 	background-image: none !important;
-	background-color: #25457F !important;  /* Darker Colour */
-	border-color: #213d70 !important;  /* Darker 'lowlight' Colour */
+	background-color: #B70606 !important;  /* Darker Colour */
+	border-color: #000 !important;  /* Darker 'lowlight' Colour */
 }
 
 .btn-success:hover {
-	background-color: #213d70 !important;  /* Darker 'lowlight' Colour */
+	background-color: #BE1F1F !important;  /* Darker 'lowlight' Colour */
 }
 
 
@@ -154,7 +189,7 @@ footer {
   padding-top: 30px;
   padding-bottom: 2px;
   color: #FFF;
-  background-color: #25457F;  /* Darker Colour */
+  background-color: #B70606;  /* Darker Colour */
 }
 
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- mapping -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization">
+  </script>
+<!-- jquery -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  </script>
+  <script type="text/javascript" src="map_auto_geocoding.js"></script>
+  
+<!-- bootstrap -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
+
+
+  <style>
+  html, body, #map_canvas { margin: 0; padding: 0; height: 100%; }
+
+  .map_legend {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #000;
+  }
+  </style>
+  
+</head>
+<body onload="initialize()">
+
+  <div id="f5" style="border: 1px solid black;">
+    <label class="control-label">Show incidents with age less than</label>
+    <div id="slider"></div>
+  </div>
+
+  <div id="map_canvas"></div>
+
+  <div id="legend">
+    <p>My first legend!</p>
+  </div>
+
+</body>
+</html>

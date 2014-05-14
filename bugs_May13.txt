@@ -1,0 +1,14 @@
+Issued by Roy
+***
+UX: 
+1) Replace map marker graphics with something more suitable
+2) continue to tweak the colour scheme of map
+3) Limit how much a user can zoom out so we don't see a "tiled map".
+
+To do:
+1) The sliders for the map filter needs a way to display the current values to user.
+2) The string for date information "14/7/2014" is not being parsed properly -- the map filter just need to extract the year, and store it as a number variable
+3) add disclaimer about the data shown
+
+Latest working map + slider is at map_filter_slider.html and map_filter_slider.js The date slider is not being used in this version because the date isn't being parsed properly
+***

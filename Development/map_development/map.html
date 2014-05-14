@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title></title>
   <style>
-  html, body, #map_canvas { margin: 0; padding: 0; height: 100%; }
+    html, body, #map_canvas { margin: 0; padding: 0; height: 100%; }
   </style>
   <script
   src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization">
@@ -17,8 +18,8 @@
     <body onload="initialize()">
       
       <label class="control-label" >Address</label>
-              <input id="inputTextAddress" type="text" class="form-control" placeholder="Los Pollos">
-<button type="button" onclick="codeAddress()">Translate to marker</button>
+      <input id="inputTextAddress" type="text" class="form-control" placeholder="Los Pollos">
+      <button type="button" onclick="codeAddress()">Translate to marker</button>
               
       <div id="map_canvas"></div>
 

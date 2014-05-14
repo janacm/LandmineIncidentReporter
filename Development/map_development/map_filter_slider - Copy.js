@@ -1,4 +1,4 @@
-// IMPORTANT: CHANGE LINE 18 (21) to https://landmine.firebaseio.com/
+// IMPORTANT: CHANGE LINE 18 to https://landmine.firebaseio.com/
 var map;
 
 var geocoder;
@@ -13,9 +13,8 @@ function initialize() {
     mapOptions);
 
   // Create a script tag and set the USGS URL as the source.
-  //var script = document.createElement('script');
-  //script.src = 'http://earthquake.usgs.gov/earthquakes/feed/geojsonp/2.5/week';
-  //document.getElementsByTagName('script')[0];
+  //  https://shining-fire-2988.firebaseio.com/.json
+  //  https://landmine.firebaseio.com/.json
 
   $.getJSON( 
     "https://shining-fire-2988.firebaseio.com/.json", function() {
@@ -23,9 +22,61 @@ function initialize() {
     })
   .done(function( data ) {
 
+    var current_time = new Date();
+
+    var current_year = current_time.getFullYear();
+
     for (var entry in data) 
     {  // need to get index of an element (i.e. json[0] is undefined)
 
+
+      var age = parseInt(data[entry].age);
+
+// the date problem is being investigated -- the following currently doesn't fetch the year
+// we just need to fetch the year
+      var date_inp=data[entry].date_injured;
+      var date_injured2 = new Date(date_inp);
+      var date_injured= date_injured2.getFullYear();
+
+      date_injured=2014; // debug hack
+// end of date fetching
+
+      var age_lb=19; //lower decision boundary on age
+      var age_ub=21; //upper decision boundary on age
+      
+      var date_lb=2000; //lower decision boundary on age
+      var date_ub=2014;//upper decision boundary on age
+
+      // 1) The ith element of data_status indicates whether the current data
+      // entry (the current report) satisfies the range specified by ith slider
+      // 2) We have the age slider in element 0, and the date slider in element 1
+      var data_status = [ (age>=age_lb) && (age <= age_ub),
+                          (date_injured>= date_lb ) && (date_injured<=date_u
+                            b)];
+
+
+      // check input
+      if( (age=="") || (age<0 )|| (age>150))
+      {
+        data_status[0]=false;
+      }
+
+
+      if( (date_injured=="") || (date_injured< 1900) || (date_injured > current_year))
+      {
+        data_status[1]=false;
+      }
+
+      data_status[1]=true;//debug only
+      var plot_flag=true;
+      for (var i = 0; i < data_status.length; i++) 
+      { 
+        plot_flag=plot_flag && data_status[i];
+      }
+
+      // Try to geocode and place marker if it passed the filters
+      if (plot_flag==true) 
+      {
         var city_diagnosed = data[entry].city_diagnosed;
         var country_diagnosed = data[entry].country_diagnosed;
         var marker_diagnosed = 'marker_diagnosed.png';
@@ -35,8 +86,8 @@ function initialize() {
         var country_accident = data[entry].country_accident;
         var marker_accident = 'marker_accident.png';
         prepAddress(city_accident,country_accident,marker_accident);
-
-    
+      }
+      
 
     }
 

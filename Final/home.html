@@ -31,8 +31,8 @@
     <meta name="Author"                 content="Team, The">
     <meta name="Description" lang="en"  content="The homepage of the Landmine Incident Tracker.">
     <meta name="Keywords"    lang="en"  content="Landmine, Landmines, Incident Report">
-    <!--link rel="icon"             type="image/jpg" href="/images/favicon.jpg"-->
-    <!--link rel="apple-touch-icon" type="image/jpg" href="/images/favicon.jpg"-->
+    <link rel="icon"             type="image/png" href="images/favicon.png"-->
+    <link rel="apple-touch-icon" type="image/png" href="images/favicon.png"-->
     
     <!-- - - - - - - - - - - - - - - - - - - -
      Stylesheets
@@ -40,7 +40,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
     
   </head>
   
@@ -59,35 +59,37 @@
 			 - - - - - - - - - - - - - - - - - - - -->
 		
 			<header>
-			
-				<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-					<div class="container-fluid">
-						<!-- Title and Toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<!-- Three-Bar Togle Button (for mobile) -->
-							<button type="button" class="navbar-toggle navbar-toggle-custom" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar icon-custom"></span>
-								<span class="icon-bar icon-custom"></span>
-								<span class="icon-bar icon-custom"></span>
-							</button>
-							<!-- Title -->
-							<a id="HomeBtn" href="home.html" class="navbar-brand">Landmine Incident Tracker</a>
-						</div>
-					
-						<!-- Other Content (which is toggled) -->
-						<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li><a id="AboutBtn" href="about-static.html">About the Issue</a></li>
-								<li><a id="ContactBtn" href="contact-static.html">Contact Agencies</a></li>
-								<li><a id="DownloadBtn"
-								       href="https://landmine.firebaseio.com/.json?print=pretty&download=landmine_tracker-data_export.json"
-								    >Download Data</a></li>
-							</ul>
-						</div>  <!-- /.navbar-collapse -->
-					</div>  <!-- /.container-fluid -->
+				<nav class="navbar navbar-custom navbar-fixed-top container-fluid" role="navigation">
+				  
+          <!-- Title and Toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <!-- Title -->
+            <a id="HomeBtn" href="home.html" class="navbar-brand">
+              <img src="images/logo.png" alt="Landmine Tracker" width="200px">
+            </a>
+            <!-- Three-Bar Togle Button (for mobile) -->
+            <button type="button" class="navbar-toggle navbar-toggle-custom"
+                    data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar icon-custom"></span>
+              <span class="icon-bar icon-custom"></span>
+              <span class="icon-bar icon-custom"></span>
+            </button>
+          </div>
+        
+          <!-- Other Content (which is toggled) -->
+          <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a id="MapBtn" href="map.html">View Map</a></li>
+              <li><a id="AboutBtn" href="about-static.html">About the Issue</a></li>
+              <li><a id="ContactBtn" href="contact-static.html">Contact Agencies</a></li>
+              <li><a id="DownloadBtn"
+                     href="https://landmine.firebaseio.com/.json?print=pretty&download=landmine_tracker-data_export.json"
+                  >Download Data</a></li>
+            </ul>
+          </div>
+          
 				</nav>
-		
 			</header>
 		
 		
@@ -112,25 +114,17 @@
 									<a id="LoginBtn" class="btn btn-success col-md-4 registerBtn" href="report_military.html">Military Personnel</a>  
 								</div>
 							</form>
-							</div>
-						</div>
-					</div>
+						</div>		<!-- /loginSec -->		
 				
-				
-					<!-- - - - - - - - - - - - - - - - - - - -
-					 Map
-					 - - - - - - - - - - - - - - - - - - - -->
-				
-					<!--div class="map">
-						<img alt="This is a map"
-								 src="http://newsimg.bbc.co.uk/media/images/44276000/gif/_44276352_mines_map_629.gif"
-								 width="1000"
-						/>
-						<img alt="This is a map"
-								 src="http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png"
-								 width="100%"
-						/>
-					</div-->
+  					<!-- - - - - - - - - - - - - - - - - - - -
+  					 Map Button
+  					 - - - - - - - - - - - - - - - - - - - -->
+  				
+            <div class="row">
+              <a class="btn btn-success col-md-offset-4 homePageMapBtn" href="map.html">View Data on Map</a>  
+            </div>
+
+          </div>  <!-- /container -->
 			
 				</div>  <!-- /#AJAX-swap-content -->
 			</div>  <!-- /#AJAX-swap-parent -->
@@ -155,11 +149,7 @@
     <script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
     <script src="https://cdn.firebase.com/js/simple-login/1.4.1/firebase-simple-login.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <!--script type='text/javascript' src="login.js"></script-->
-    <!--script type='text/javascript' src="ajax.js"></script-->
-    <!--script type='text/javascript' src="js/convertToCSV.js"></script-->
-    
-    
+   
   </body>
   
   

@@ -1,0 +1,9 @@
+#map_canvas { 
+  margin: 0;
+  padding: 0;
+  height: 800px; 
+}
+
+.map_contain {
+  margin-top: 70px;
+}

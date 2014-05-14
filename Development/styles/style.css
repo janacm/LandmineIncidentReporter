@@ -28,9 +28,10 @@
  * * * * * * * * * * * * * * * * * * * */
 body,
 html {
-  background: #213d70;  /* Darker 'lowlight' Colour */
-  background: url('http://upload.wikimedia.org/wikipedia/commons/f/f0/Land_mine_casualties_and_fatalities.png') no-repeat center center fixed,
-              #213d70;  /* Darker 'lowlight' Colour */
+  background: #BE1F1F;  /* Darker 'lowlight' Colour */
+  background: url('http://misshelen.files.wordpress.com/2010/09/house-in-minefield.jpg')
+              no-repeat center center fixed,
+              #BE1F1F;  /* Darker 'lowlight' Colour */
   background-size: cover;
 }
 
@@ -62,20 +63,21 @@ header .title {
 .navbar-custom a {
   color: #000 !important;
   font-size: 1.1em;
+  height: 100%;
 }
 
 .navbar-nav a:not(.active):hover {
-  /*background-color: #EEEFEF !important;  /* Lighter highlight Colour */*/
+  /*background-color: #EEEFEF !important;  /* Lighter highlight Colour */
   cursor: pointer;
-  color: #fff !important;
-  background-color: #B70606 !important;
+  color: #FFF !important;
+  background-color: #BE1F1F !important;
 }
 
 .navbar-nav .active {
-  /*background-color: #3F6FC7 !important;  /* Lighter Colour */*/
+  /*background-color: #3F6FC7 !important;  /* Lighter Colour */
   /*color: #EEEFEF;*/
-  color: #fff !important;
-  background-color: #BE1F1F !important;
+  color: #FFF !important;
+  background-color: #B70606 !important;
 }
 
 .navbar-toggle-custom {
@@ -86,12 +88,17 @@ header .title {
   background-color: #000 !important;
 }
 
+
+.navbar-brand {
+  color: black;
+}
+
 .navbar-nav {
   cursor: pointer;
 }
 
-.links {
-  padding: 45px !important;
+.navbar-nav li>a {
+  padding: 45px 20px !important;
 }
 
 
@@ -150,6 +157,16 @@ form input {
 	padding-top: 40px !important;
 	font-size: 1.2em !important;
 }
+
+.homePageMapBtn {
+  height: 60px;
+  width: 405px;
+  margin-top: 23px;
+  padding-top: 18px !important;
+  font-size: 1.2em !important;
+}
+
+
 
 .btn-success {
 	background-image: none !important;

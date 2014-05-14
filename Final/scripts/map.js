@@ -1,13 +1,27 @@
-// IMPORTANT: CHANGE LINE 18 (21) to https://landmine.firebaseio.com/
+// IMPORTANT: CHANGE LINE 18 to https://landmine.firebaseio.com/
 var map;
 
 var geocoder;
 
+$(document).ready(initialize);
+
 function initialize() {
   var mapOptions = {
-    zoom: 2,
-    center: new google.maps.LatLng(2.8,-187.3),
-    mapTypeId: google.maps.MapTypeId.SATELLITE 
+    zoom:   2,
+    center: {lat: 2.8, lng: -187.3},  // TODO: nice to use geo API to center on user
+    overviewMapControl: false,
+    streetViewControl:  false,
+    mapTypeControl:     false,
+    mapTypeId:          google.maps.MapTypeId.SATELLITE,
+    panControl:         true,
+    rotateControl:      false,
+    scaleControl:       false,
+    scrollwheel:        false,
+    zoomControl:        true,
+    zoomControlOptions: {style: google.maps.ZoomControlStyle.SMALL}
+    //styles: [MAGIC]  Styles to apply to each of the default map types. Note that for Satellite/Hybrid and Terrain modes, these styles will only apply to labels and geometry.
+    // SEE: https://developers.google.com/maps/documentation/javascript/reference?csw=1#MapTypeStyle
+    // SEE: https://developers.google.com/maps/documentation/javascript/reference?csw=1#MapTypeStyleElementType
   };
   map = new google.maps.Map(document.getElementById('map_canvas'),
     mapOptions);
@@ -18,7 +32,7 @@ function initialize() {
   //document.getElementsByTagName('script')[0];
 
   $.getJSON( 
-    "https://shining-fire-2988.firebaseio.com/.json", function() {
+    "https://landmine.firebaseio.com/.json", function() {
       console.log( "success" );
     })
   .done(function( data ) {

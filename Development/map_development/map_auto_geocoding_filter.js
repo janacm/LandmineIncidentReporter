@@ -1,4 +1,4 @@
-// IMPORTANT: CHANGE LINE 18 (21) to https://landmine.firebaseio.com/
+// IMPORTANT: CHANGE LINE 18 to https://landmine.firebaseio.com/
 var map;
 
 var geocoder;
@@ -7,7 +7,7 @@ function initialize() {
   var mapOptions = {
     zoom: 2,
     center: new google.maps.LatLng(2.8,-187.3),
-    mapTypeId: google.maps.MapTypeId.SATELLITE 
+    mapTypeId: google.maps.MapTypeId.TERRAIN
   };
   map = new google.maps.Map(document.getElementById('map_canvas'),
     mapOptions);
@@ -18,29 +18,26 @@ function initialize() {
   //document.getElementsByTagName('script')[0];
 
   $.getJSON( 
-    "https://shining-fire-2988.firebaseio.com/.json", function() {
+    
+    "https://landmine.firebaseio.com/.json", function() {
       console.log( "success" );
     })
-  .done(function( data ) {
+      .done(function( data ) {
+        for (var entry in data){
+          var city = data[entry].city;
+          var country = data[entry].country;
+          var age = data[entry].age;
+          var date_injured = data[entry].age;
+          var marker = 'marker_accident.png';
 
-    for (var entry in data) 
-    {  // need to get index of an element (i.e. json[0] is undefined)
+          // if($('#f1').is(':checked')) { 
+          //   prepAddress(city,country,marker_accident, "age");
+          // }else{
+          //   alert("fail");
+          // }
 
-        var city_diagnosed = data[entry].city_diagnosed;
-        var country_diagnosed = data[entry].country_diagnosed;
-        var marker_diagnosed = 'marker_diagnosed.png';
-        prepAddress(city_diagnosed,country_diagnosed,marker_diagnosed);
 
-        var city_accident = data[entry].city_accident;
-        var country_accident = data[entry].country_accident;
-        var marker_accident = 'marker_accident.png';
-        prepAddress(city_accident,country_accident,marker_accident);
-
-    
-
-    }
-
-    // legend
+        }// legend
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].
     push(document.getElementById('legend')); 
     var label_accident = "Accident location";
@@ -54,49 +51,54 @@ function initialize() {
 
   });
 
-geocoder=new google.maps.Geocoder();
+  geocoder=new google.maps.Geocoder();
 
   //map styling
   var map_styles = [
-  {
-    stylers: [
-    { hue: "#00ffe6" },
-    { saturation: -20 }
-    ]
-  },{
-    featureType: "road",
-    elementType: "geometry",
-    stylers: [
-    { lightness: 100 },
-    { visibility: "simplified" }
-    ]
-  },{
-    featureType: "road",
-    elementType: "labels",
-    stylers: [
-    { visibility: "off" }
-    ]
-  }
+    {
+      stylers: [
+        { hue: "#00ffe6" },
+        { saturation: -20 }
+      ]
+    },{
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+    },{
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    }
   ];
   map.setOptions({styles: map_styles});
+} //end initialize()
 
-
+function displayFilteredPoints_Age(first_choice,second_choice,icon_src, age){
+     prepAddress(first_choice,second_choice,icon_src, age);
 }
 
-function prepAddress(first_choice,second_choice,icon_src)
+function prepAddress(first_choice,second_choice,icon_src, filter)
 {
   if (first_choice=="") 
-  {
-    if (second_choice!="") 
-    {
-      codeAddress(second_choice,icon_src);
-    }
-  }
-  else
-  {
-    codeAddress(first_choice,icon_src);
-  }
+      {
+        if (second_choice!="") 
+        {
+          if (filter == "age"){
+            codeAddress(second_choice,icon_src);
+          }
+        }
+      }
+      else
+      {
+        codeAddress(first_choice,icon_src);
+      }
 }
+
 /* Code adapted from 
 https://developers.google.com/maps/documentation/javascript/geocoding */
 function codeAddress(sAddress,icon_src)
@@ -105,7 +107,7 @@ function codeAddress(sAddress,icon_src)
   geocoder.geocode({ 'address':sAddress}, 
     function(results,status)
     {
-
+    
       if(status==google.maps.GeocoderStatus.OK)
       {
         map.setCenter(results[0].geometry.location);
@@ -122,6 +124,6 @@ function codeAddress(sAddress,icon_src)
         console.log("Geocode was not successful"); 
         //alert("Geocode was not successful for the following reason: "+status)
       }
-
+    
     });
 }
